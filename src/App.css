@@ -1,5 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Brygada+1918:ital@1&family=Ovo&family=Quattrocento&display=swap');
+
 .App {
+  overflow: hidden;
+}
+
+.flex-box {
+  display: flex;
+  flex-flow: column;
+  flex-direction: row;
+}
+
+
+header {
+  background-color: #129490;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: left;
+  padding: 20px;
+  color:#DDFFF7;
+  font-family: 'Ovo', serif;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  font-family: 'Ovo', serif;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+
+
+.centered-text {
   text-align: center;
+}
+
+label {
+  font-size: 20px;
+  font-family: 'Quattrocento', serif;
+  padding: 10px;
+  padding-left: 0px;
+}
+
+#new-user-text {
+  font-family: 'Brygada 1918', serif;
+  font-weight: bold;
+  font-style: italic;
+}
+
+input {
+  padding: 7px;
+  border: #129490 2px solid;
+}
+
+form {
+  padding: 25%;
+}
+
+.flex-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.float-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.float-child {
+  width: 50%;
+  height: 100vh;
+  float: left
+}
+
+img {
+  object-fit: cover;
+}
+
+.sign-up {
+  background-color: #DDFFF7;
 }
 
 .App-logo {
