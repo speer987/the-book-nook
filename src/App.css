@@ -14,6 +14,17 @@ p {
   font-size: 16px;
 }
 
+#book-quote {
+  background-color: #129490;
+  font-family: 'Brygada 1918', serif;
+  color: white;
+  width: auto;
+  height: auto;
+  padding: 40px;
+  overflow-wrap: break-word;
+  font-size: 18px;
+}
+
 header {
   background-color: #129490;
   font-size: 40px;
@@ -86,7 +97,7 @@ input,
 }
 
 form {
-  padding: 20%;
+  padding: 10%;
 }
 
 .flex-form {

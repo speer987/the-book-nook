@@ -17,10 +17,13 @@ function App() {
               <input type="password" id="password" name="fname"/>
               <input id="submit-button" type="submit" value="Sign In"/>
               <div id="user-links">
-                <p>New user? Register here.</p>
-                <p>Forgot Password? Reset here.</p>
+                {/* <p>New user? Register <a href="#">here.</a></p>
+                <p>Forgot Password? Reset <a href="#">here.</a></p> */}
               </div>
             </form>
+            <div id="book-quote">
+              “The books [poetry collections] may not sell, but neither are they given away or thrown away. They tend, more than other books, to fall apart in their owners’ hands. Not I suppose good news in a culture and economy built on obsolescence. But for a book to be loved this way and turned to this way for consolation and intense renewable excitement seems to me a marvel.”
+            </div>
           </div>
         </div>
       </div>
