@@ -15,7 +15,11 @@ function App() {
               <input type="text" id="email" name="fname"/>
               <label for="password">Password</label>
               <input type="password" id="password" name="fname"/>
-              <p id="new-user-text">New user? Register here.</p>
+              <input id="submit-button" type="submit" value="Sign In"/>
+              <div id="user-links">
+                <p>New user? Register here.</p>
+                <p>Forgot Password? Reset here.</p>
+              </div>
             </form>
           </div>
         </div>
