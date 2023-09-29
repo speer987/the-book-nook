@@ -1,15 +1,16 @@
 import Header from "../components/Header";
+// import { ReadingLogPage } from "./ReadingLogPage";
+import OptionsMenu from "../components/OptionsMenu";
 
-export const ExplorePage = () => {
+const ExplorePage = () => {
   return (
     <div>
       <Header />
-      <div class="nav-bar">
-        <div class="nav-button nav-button-current">Explore</div>
-        <div class="nav-button">Bookshelf</div>
-        <div class="nav-button">Reading Log</div>
-        <div class="nav-button">Vocabulary</div>
-      </div>
+      <OptionsMenu selected="explore" />
+      <h1 class="page-title">Explore</h1>
+      <div>Best Selling Books</div>
     </div>
   );
 };
+
+export default ExplorePage;

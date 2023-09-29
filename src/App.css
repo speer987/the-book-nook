@@ -71,7 +71,8 @@ input {
 
 } */
 
-.nav-bar {
+.nav-bar,
+.tab-div {
   width: 100vw;
   background-color: #129490;
   display: flex;
@@ -102,4 +103,10 @@ input {
 .nav-button-current {
   background-color: #129490;
   color:#DDFFF7;
+  /* height: 70%; */
+}
+
+.page-title {
+  padding: 2%;
+  margin: 0px;
 }

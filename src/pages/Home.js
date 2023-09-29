@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import image from "../images/sign-up-page.jpg";
 import { useNavigate } from "react-router-dom";
 
-export const Home = () => {
+const Home = () => {
   const navigate = useNavigate();
   return (
     <div>
@@ -20,7 +20,7 @@ export const Home = () => {
               id="submit-button"
               type="submit"
               value="Sign In"
-              onClick={() => navigate("/dashboard")}
+              onClick={() => navigate("/explore")}
             />
             <a href="#">Register for a Book Nook account!</a>
             <a href="#">Forgot Password?</a>
@@ -30,3 +30,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;
