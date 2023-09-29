@@ -63,10 +63,43 @@ input {
   padding: 5px;
 }
 
-#submit-button {
+/* #submit-button {
 
 }
 
 #submit-button:hover {
 
+} */
+
+.nav-bar {
+  width: 100vw;
+  background-color: #129490;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-button {
+  flex-grow: 1;
+  text-align: center;
+  font-family: "Brygada 1918", serif;
+  font-weight: bold;
+  font-size: 19px;
+  color: #129490;
+  padding: 1%;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #DDFFF7;
+  border: 1px solid #129490;
+  border-bottom: none;
+}
+
+.nav-button:hover {
+  background-color: #001021;
+  color: white;
+  transition: ease-in 90ms;
+}
+
+.nav-button:active,
+.nav-button-current {
+  background-color: #129490;
+  color:#DDFFF7;
 }

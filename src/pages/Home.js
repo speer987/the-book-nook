@@ -1,11 +1,12 @@
-import image from "./images/sign-up-page.jpg";
+import Header from "../components/Header";
+import image from "../images/sign-up-page.jpg";
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <header>The Book Nook</header>
+      <Header />
       <div class="flex-container flex-row">
         <img id="front-img" src={image} alt="floating book"></img>
         <div id="form-container">

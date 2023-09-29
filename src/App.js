@@ -1,6 +1,6 @@
 import "./App.css";
-import { DashboardPage } from "./Dashboard";
-import { Home } from "./Home";
+import { ExplorePage } from "./pages/ExplorePage";
+import { Home } from "./pages/Home";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -11,7 +11,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/dashboard" element={<ExplorePage />} />
           </Routes>
         </Router>
       </div>
