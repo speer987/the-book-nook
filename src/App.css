@@ -109,4 +109,13 @@ input {
 .page-title {
   padding: 2%;
   margin: 0px;
+  padding-bottom: 0px;
+}
+
+.subtitle {
+  font-family: "Brygada 1918", serif;
+  font-size: 18px;
+  margin: 0px;
+  padding: 2%;
+  padding-top: 0%;
 }
