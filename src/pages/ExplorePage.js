@@ -20,7 +20,9 @@ const ExplorePage = () => {
   }, []);
 
   const categoryInfo = categoryList?.results;
-  const categories = categoryInfo?.map((category) => category.list_name);
+  const categories = categoryInfo
+    ?.slice(0, 10)
+    ?.map((category) => category.list_name);
   console.log(categories);
 
   const urlList = categories?.map(
@@ -30,7 +32,18 @@ const ExplorePage = () => {
       `.json?api-key=` +
       apiKey
   );
-  console.log(urlList);
+  // console.log(urlList?.[0]);
+
+  // useEffect(() => {
+  //   url = urlList?.[0];
+  //   console.log(url);
+  //   fetch(url)
+  //     .then((response) => response.json())
+  //     .then((response) => setCurrentBest(response))
+  //     .catch((error) => setCurrentBest(error));
+  // }, []);
+
+  // console.log(currentBest);
 
   // const bookCategoryDataList = urlList.map();
   // useEffect(() => {
@@ -52,7 +65,23 @@ const ExplorePage = () => {
       <OptionsMenu selected="explore" />
       <h1 class="page-title">Explore</h1>
       <div class="subtitle">New York Time's Best Selling Books This Week</div>
-      <div>Add a dropdown here</div>
+      <div class="flex-container flex-row covers-container">
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+        <div class="book-cover">box</div>
+      </div>
 
       <div>Search</div>
       <div></div>

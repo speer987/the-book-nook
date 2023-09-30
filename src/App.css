@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Brygada+1918&family=Ovo&display=swap');
 
 .App {
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 0px;
   padding: 0px;
   height: 100vh;
@@ -118,4 +118,20 @@ input {
   margin: 0px;
   padding: 2%;
   padding-top: 0%;
+}
+
+.covers-container {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  row-gap: 30px;
+  column-gap: 20px;
+  padding: 25px;
+  padding-top: 0px;
+  overflow: scroll;
+}
+
+.book-cover {
+  background-color: #129490;
+  width: calc(100vw / 5 - 40px);
+  height: 350px;
 }
