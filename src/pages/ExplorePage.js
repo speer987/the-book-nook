@@ -1,3 +1,4 @@
+import Dropdown from "../components/Dropdown";
 import Header from "../components/Header";
 // import { ReadingLogPage } from "./ReadingLogPage";
 import OptionsMenu from "../components/OptionsMenu";
@@ -65,6 +66,8 @@ const ExplorePage = () => {
       <OptionsMenu selected="explore" />
       <h1 class="page-title">Explore</h1>
       <div class="subtitle">New York Time's Best Selling Books This Week</div>
+      {/* <label for="genre">Genre:</label> */}
+      <Dropdown list={categories} purpose="Genre" />
       <div class="flex-container flex-row covers-container">
         <div class="book-cover">box</div>
         <div class="book-cover">box</div>
