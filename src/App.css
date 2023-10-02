@@ -131,7 +131,7 @@ input {
 }
 
 .book-cover {
-  background-color: #129490;
+  /* background-color: #129490; */
   width: calc(100vw / 5 - 40px);
   height: 350px;
 }

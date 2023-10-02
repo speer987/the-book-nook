@@ -86,26 +86,9 @@ const ExplorePage = () => {
       <Dropdown list={dummyList} purpose="Genre" />
       <div class="flex-container flex-row covers-container">
         {bookList?.map((bookInfo) => (
-          <img src={bookInfo?.book_image} />
+          <img class="book-cover" key={bookInfo} src={bookInfo?.book_image} />
         ))}
-        {/* console.log(bookInfo?.book_image) */}
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
-        <div class="book-cover">box</div>
       </div>
-
       <div>Search</div>
       <div></div>
     </div>
