@@ -135,3 +135,12 @@ input {
   width: calc(100vw / 5 - 40px);
   height: 350px;
 }
+
+.blue-background {
+  background-color: green;
+  margin: 10px;
+}
+
+.half-width {
+  width: 50vw;
+}

@@ -20,7 +20,7 @@ const Home = () => {
               id="submit-button"
               type="submit"
               value="Sign In"
-              onClick={() => navigate("/explore")}
+              onClick={() => navigate("/search")}
             />
             <a href="#">Register for a Book Nook account!</a>
             <a href="#">Forgot Password?</a>
