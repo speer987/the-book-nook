@@ -141,6 +141,56 @@ input {
   margin: 10px;
 }
 
-.half-width {
-  width: 50vw;
+.blurb-grid {
+  display: grid;
+  grid-template-areas: 'image image title title title title'
+  'image image author author published published'
+  'image image desc desc desc desc'
+  'preview preview desc desc desc desc'
+  'add add maturity rating pageno price';
+  
+}
+
+#grid-rating {
+  grid-area: rating;
+}
+
+#grid-add {
+  grid-area: add;
+}
+
+#grid-title {
+  grid-area: title;
+}
+
+#grid-published {
+  grid-area: published;
+}
+
+#grid-image {
+  grid-area: image;
+}
+
+#grid-author {
+  grid-area: author;
+}
+
+#grid-desc {
+  grid-area: desc;
+}
+
+#grid-preview {
+  grid-area: preview;
+}
+
+#grid-maturity {
+  grid-area: maturity;
+}
+
+#grid-page {
+  grid-area: pageno;
+}
+
+#grid-price {
+  grid-area: price;
 }
