@@ -136,11 +136,6 @@ input {
   height: 350px;
 }
 
-.blue-background {
-  background-color: green;
-  margin: 10px;
-}
-
 .blurb-grid {
   display: grid;
   grid-template-areas: 'image image title title title title'
@@ -153,44 +148,55 @@ input {
 
 #grid-rating {
   grid-area: rating;
+  background-color: blue;
 }
 
 #grid-add {
   grid-area: add;
+  border: 2px solid blue;
 }
 
 #grid-title {
   grid-area: title;
+  border: 2px solid blue;
 }
 
 #grid-published {
   grid-area: published;
+  border: 2px solid blue;
 }
 
 #grid-image {
   grid-area: image;
+  border: 2px solid blue;
 }
 
 #grid-author {
   grid-area: author;
+  border: 2px solid blue;
 }
 
 #grid-desc {
   grid-area: desc;
+  border: 2px solid blue;
 }
 
 #grid-preview {
   grid-area: preview;
+  border: 2px solid blue;
 }
 
 #grid-maturity {
   grid-area: maturity;
+  border: 2px solid blue;
 }
 
 #grid-page {
   grid-area: pageno;
+  border: 2px solid blue;
 }
 
 #grid-price {
   grid-area: price;
+  border: 2px solid blue;
 }
