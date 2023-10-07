@@ -111,7 +111,6 @@ const ExplorePage = () => {
           />
         ))}
       </div> */}
-      <div>Search</div>
       <div></div>
     </div>
   );

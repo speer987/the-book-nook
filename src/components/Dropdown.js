@@ -11,6 +11,7 @@ export default function Dropdown({ categoryList, dropdownPurpose, idName }) {
 
     let base_url = `https://api.nytimes.com/svc/books/v3/lists/current/${selectedElement}.json?api-key=`;
 
+    // https://stackoverflow.com/a/1983661
     let url = base_url.replace(/\s+/g, "-").toLowerCase();
     url = url + apiKey;
     fetch(url)

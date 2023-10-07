@@ -2,40 +2,35 @@ import BookBlurb from "../components/BookBlurb";
 import Header from "../components/Header";
 import OptionsMenu from "../components/OptionsMenu";
 import { useState } from "react";
+import TextInput from "../components/TextInput";
+import SubmitButton from "../components/SubmitButton";
 const SearchPage = () => {
   let [title, setTitle] = useState("");
   let [author, setAuthor] = useState("");
+  let [data, setData] = useState();
 
-  function submit(e) {
-    e.preventDefault();
-    console.log("title:", title);
-    console.log("author:", author);
-  }
   return (
     <div>
       <div>
         <Header />
         <OptionsMenu selected="search" />
       </div>
-      <h1 class="page-title">Search</h1>
-      <div class="subtitle">Books by Title and/or Author</div>
-      <form>
-        <label for="title">Title</label>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <br />
-        <label for="title">Author</label>
-        <input
-          type="text"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-        <br />
-        <button onClick={submit}>Search</button>
-      </form>
+      <h1 className="page-title">Search</h1>
+      <div className="subtitle">Books by Title and/or Author</div>
+      <TextInput
+        displayName="Title"
+        type="text"
+        value="title"
+        setter={setTitle}
+      />
+      <TextInput
+        displayName="Author"
+        type="text"
+        value={author}
+        setter={setAuthor}
+      />
+      <SubmitButton title={title} author={author} setData={setData} />
+      {console.log(data)}
       <BookBlurb />
     </div>
   );
