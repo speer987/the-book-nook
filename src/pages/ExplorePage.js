@@ -1,6 +1,5 @@
 import Dropdown from "../components/Dropdown";
 import Header from "../components/Header";
-// import { ReadingLogPage } from "./ReadingLogPage";
 import OptionsMenu from "../components/OptionsMenu";
 import { useState, useEffect } from "react";
 
@@ -71,12 +70,6 @@ const ExplorePage = () => {
     "Young Adult Paperback Monthly",
   ];
 
-  // const apiKey = `LrgMgEJkKjWGZ5zXLBAd3voRBfD2s6aD`;
-  // let url = "";
-
-  // {
-  //   console.log(categories);
-  // }
   return (
     <div>
       <Header />
@@ -90,27 +83,6 @@ const ExplorePage = () => {
         dropdownPurpose="Genre"
         idName={"dropdown1"}
       />
-      {/* <div>
-        <label htmlFor="Genre">Genre</label>
-        <select
-          onChange={(event) => getSelection(event)}
-          name="Genre"
-          id="dropdown1"
-        >
-          {categories?.map((item) => (
-            <option value={item}>{item}</option>
-          ))}
-        </select>
-      </div> */}
-      {/* <div className="flex-container flex-row covers-container">
-        {bookList?.map((bookInfo) => (
-          <img
-            className="book-cover"
-            key={bookInfo?.book_image}
-            src={bookInfo?.book_image}
-          />
-        ))}
-      </div> */}
       <div></div>
     </div>
   );

@@ -30,8 +30,7 @@ const SearchPage = () => {
         setter={setAuthor}
       />
       <SubmitButton title={title} author={author} setData={setData} />
-      {console.log(data)}
-      <BookBlurb />
+      <BookBlurb data={data} />
     </div>
   );
 };

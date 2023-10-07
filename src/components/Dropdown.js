@@ -1,8 +1,9 @@
 import BookList from "./BookList";
 import { useState } from "react";
+import { NYT_API_KEY } from "../apiKeys";
 
 export default function Dropdown({ categoryList, dropdownPurpose, idName }) {
-  const apiKey = `LrgMgEJkKjWGZ5zXLBAd3voRBfD2s6aD`;
+  const apiKey = NYT_API_KEY;
   let [currentBest, setCurrentBest] = useState();
 
   function getSelection(event) {

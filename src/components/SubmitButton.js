@@ -1,7 +1,8 @@
+import { G_BOOKS_API_KEY } from "../apiKeys";
 export default function SubmitButton({ title, author, setData }) {
   function submit(e) {
     e.preventDefault();
-    const apiKey = `AIzaSyBZwU8jcrNehAMSx7zJo2_zie9RqaUMha4`;
+    const apiKey = G_BOOKS_API_KEY;
     let url = "";
     let base_url = `https://www.googleapis.com/books/v1/volumes?`;
 
