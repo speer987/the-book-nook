@@ -24,7 +24,7 @@ export default function SubmitButton({ title, author, setData }) {
     fetch(url)
       .then((response) => response.json())
       .then((response_json) => {
-        setData(response_json);
+        setData(response_json?.items);
       })
       .catch((error) => setData(error));
   }

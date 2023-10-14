@@ -1,3 +1,4 @@
+import BookInfo from "./BookInfo";
 import GridElement from "./GridElement";
 import ImageGridElement from "./ImageGridElement";
 import GridPrevButton from "./GridPrevButton";
@@ -19,8 +20,11 @@ export default function BookBlurb({ data }) {
     type,
     type_bool = null;
 
-  data?.items?.map((item) => {
-    currentVolume = item?.volumeInfo;
+  let bookArray = [];
+  let currentDict = {};
+
+  data?.map((book) => {
+    currentVolume = book?.volumeInfo;
     title = currentVolume?.title;
     image = currentVolume?.imageLinks?.thumbnail;
     authors = currentVolume?.authors;
@@ -31,7 +35,7 @@ export default function BookBlurb({ data }) {
     pages = currentVolume?.pageCount;
     preview = currentVolume?.previewLink;
 
-    base = item?.saleInfo;
+    base = book?.saleInfo;
     type_bool = base?.isEbook;
     if (type_bool === true) {
       type = "E-Book Price";
@@ -50,35 +54,74 @@ export default function BookBlurb({ data }) {
     }
 
     currency = base?.listPrice?.currencyCode;
-    if (item?.saleInfo?.saleability === "FOR_SALE" && currency === "USD") {
+    if (book?.saleInfo?.saleability === "FOR_SALE" && currency === "USD") {
       listPrice = base?.listPrice?.amount?.toString();
       price = listPrice + " " + currency;
     } else {
       price = "Not saleable within the United States.";
     }
+
+    currentDict = {
+      title: title,
+      authors: authors,
+      image: image,
+      desc: desc,
+      maturity: maturity,
+      published: published,
+      rating: rating,
+      pages: pages,
+      preview: preview,
+      price: price,
+      type: type,
+    };
+
+    bookArray.push(currentDict);
+    // <BookInfo
+    //   title={title}
+    //   authors={authors}
+    //   image={image}
+    //   desc={desc}
+    //   maturity={maturity}
+    //   published={published}
+    //   rating={rating}
+    //   pages={pages}
+    //   preview={preview}
+    //   price={price}
+    //   type={type}
+    // />;
+    // right now, it's only returning info for the last book after searching midnight library (cave thingie)
+    // book?.map((info) => console.log(info));
   });
 
-  return (
+  return bookArray?.map((book) => (
     <div className="blurb-grid flex-container flex-row">
-      <ImageGridElement id="grid-image" src={image} />
-      <GridElement id="grid-title" content={title} />
-      <GridElement id="grid-author" content={authors} display="Author(s)" />
-      <GridElement id="grid-desc" content={desc} />
-      <GridElement id="grid-maturity" content={maturity} display="Maturity" />
+      <ImageGridElement id="grid-image" src={book.image} />
+      <GridElement id="grid-title" content={book.title} />
+      <GridElement
+        id="grid-author"
+        content={book.authors}
+        display="Author(s)"
+      />
+      <GridElement id="grid-desc" content={book.desc} />
+      <GridElement
+        id="grid-maturity"
+        content={book.maturity}
+        display="Maturity"
+      />
       <GridElement
         id="grid-published"
-        content={published}
+        content={book.published}
         display="Published"
       />
-      <GridElement id="grid-rating" content={rating} display="Rating" />
-      <GridElement id="grid-page" content={pages} display="Page Count" />
+      <GridElement id="grid-rating" content={book.rating} display="Rating" />
+      <GridElement id="grid-page" content={book.pages} display="Page Count" />
       <GridPrevButton
         id="grid-preview"
-        content={preview}
+        content={book.preview}
         display="Read Preview"
       />
-      <GridElement id="grid-price" content={price} display={type} />
+      <GridElement id="grid-price" content={book.price} display={book.type} />
       <GridElement id="grid-add" content="" />
     </div>
-  );
+  ));
 }
