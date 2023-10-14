@@ -1,5 +1,6 @@
 import GridElement from "./GridElement";
 import ImageGridElement from "./ImageGridElement";
+import GridPrevButton from "./GridPrevButton";
 export default function BookBlurb({ data }) {
   let currentVolume,
     title,
@@ -11,73 +12,73 @@ export default function BookBlurb({ data }) {
     rating,
     price,
     pages,
-    preview = null;
+    preview,
+    currency,
+    listPrice,
+    base,
+    type,
+    type_bool = null;
 
   data?.items?.map((item) => {
     currentVolume = item?.volumeInfo;
     title = currentVolume?.title;
-    image = currentVolume?.imageLinks.thumbnail;
+    image = currentVolume?.imageLinks?.thumbnail;
     authors = currentVolume?.authors;
     desc = currentVolume?.description;
     maturity = currentVolume?.maturityRating;
     published = currentVolume?.publishedDate;
     rating = currentVolume?.averageRating;
-    // price = currentVolume?.price
     pages = currentVolume?.pageCount;
     preview = currentVolume?.previewLink;
+
+    base = item?.saleInfo;
+    type_bool = base?.isEbook;
+    if (type_bool === true) {
+      type = "E-Book Price";
+    } else {
+      type = "Print Price";
+    }
+
+    if (maturity === "NOT_MATURE") {
+      maturity = "Not Mature";
+    } else {
+      maturity = "Mature";
+    }
+
+    if (rating === undefined) {
+      rating = "None";
+    }
+
+    currency = base?.listPrice?.currencyCode;
+    if (item?.saleInfo?.saleability === "FOR_SALE" && currency === "USD") {
+      listPrice = base?.listPrice?.amount?.toString();
+      price = listPrice + " " + currency;
+    } else {
+      price = "Not saleable within the United States.";
+    }
   });
 
   return (
     <div className="blurb-grid flex-container flex-row">
       <ImageGridElement id="grid-image" src={image} />
       <GridElement id="grid-title" content={title} />
-      <GridElement id="grid-author" content={authors} />
+      <GridElement id="grid-author" content={authors} display="Author(s)" />
       <GridElement id="grid-desc" content={desc} />
-      <GridElement id="grid-maturity" content={maturity} />
-      <GridElement id="grid-published" content={published} />
-      <GridElement id="grid-rating" content={rating} />
-      <GridElement id="grid-pages" content={pages} />
-      <GridElement id="grid-preview" content={preview} />
+      <GridElement id="grid-maturity" content={maturity} display="Maturity" />
+      <GridElement
+        id="grid-published"
+        content={published}
+        display="Published"
+      />
+      <GridElement id="grid-rating" content={rating} display="Rating" />
+      <GridElement id="grid-page" content={pages} display="Page Count" />
+      <GridPrevButton
+        id="grid-preview"
+        content={preview}
+        display="Read Preview"
+      />
+      <GridElement id="grid-price" content={price} display={type} />
+      <GridElement id="grid-add" content="" />
     </div>
   );
 }
-
-// <div class="blurb-grid flex-container flex-row">
-//   <GridElement
-//     id="grid-image"
-//     className="blue-background"
-//     content="Image"
-//   />
-//   <GridElement
-//     id="grid-title"
-//     className="blue-background"
-//     content="Title"
-//   />
-//   <div id="grid-author" class="blue-background">
-//     Author
-//   </div>
-//   <div id="grid-desc" class="blue-background">
-//     Description
-//   </div>
-//   <div id="grid-maturity" class="grid-child blue-background">
-//     Maturity Rating
-//   </div>
-//   <div id="grid-published" class="grid-child blue-background">
-//     Published Date
-//   </div>
-//   <div id="grid-rating" class="grid-child blue-background">
-//     Rating
-//   </div>
-//   <div id="grid-price" class="grid-child blue-background">
-//     Price in USD
-//   </div>
-//   <div id="grid-add" class="grid-child blue-background">
-//     Add to Bookshelf
-//   </div>
-//   <div id="grid-pageno" class="grid-child blue-background">
-//     Page Count
-//   </div>
-//   <div id="grid-preview" class="grid-child blue-background">
-//     Preview Link
-//   </div>
-// </div>
