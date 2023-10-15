@@ -12,7 +12,7 @@ const SearchPage = () => {
   return (
     <div>
       <div>
-        <Header />
+        <Header loggedIn={true} />
         <OptionsMenu selected="search" />
       </div>
       <h1 className="page-title">Search</h1>

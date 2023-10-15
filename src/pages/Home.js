@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import image from "../images/sign-up-page.jpg";
 import { useNavigate } from "react-router-dom";
+import { signInWithGoogle } from "../Firebase";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -24,6 +25,12 @@ const Home = () => {
             />
             <a href="#">Register for a Book Nook account!</a>
             <a href="#">Forgot Password?</a>
+            <button type="button" onClick={signInWithGoogle}>
+              Sign in With Google
+            </button>
+            {/* <p>Name: {localStorage.getItem("name")}</p>
+            <p>Email: {localStorage.getItem("email")}</p>
+            <p>Profile Pic: {localStorage.getItem("profile pic")}</p> */}
           </form>
         </div>
       </div>
