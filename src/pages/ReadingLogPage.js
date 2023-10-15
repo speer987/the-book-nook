@@ -5,7 +5,6 @@ const ReadingLogPage = () => {
     <div>
       <div>
         <Header />
-        <OptionsMenu selected="reading-log" />
       </div>
       <div>Reading Log Page</div>
     </div>

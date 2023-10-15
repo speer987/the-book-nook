@@ -1,6 +1,6 @@
 import Dropdown from "../components/Dropdown";
 import Header from "../components/Header";
-import OptionsMenu from "../components/OptionsMenu";
+import CurrentPageWithInfo from "../components/CurrentPageWithInfo";
 import { useState, useEffect } from "react";
 
 const ExplorePage = () => {
@@ -73,17 +73,17 @@ const ExplorePage = () => {
   return (
     <div>
       <Header />
-      <OptionsMenu selected="explore" />
-      <h1 className="page-title">Explore</h1>
-      <div className="subtitle">
-        New York Time's Best Selling Books This Week
+      <div class="bg-gradient-to-b from-teal-100 text-lg p-7">
+        <CurrentPageWithInfo
+          page="Explore"
+          info={"New York Time's Best Selling Books This Week"}
+        />
+        <Dropdown
+          categoryList={categories}
+          dropdownPurpose="Genre"
+          idName={"dropdown1"}
+        />
       </div>
-      <Dropdown
-        categoryList={categories}
-        dropdownPurpose="Genre"
-        idName={"dropdown1"}
-      />
-      <div></div>
     </div>
   );
 };

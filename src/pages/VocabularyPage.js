@@ -5,7 +5,6 @@ const VocabularyPage = () => {
     <div>
       <div>
         <Header />
-        <OptionsMenu selected="vocabulary" />
       </div>
       <div>Vocab Page</div>
     </div>

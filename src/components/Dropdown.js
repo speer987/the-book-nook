@@ -25,9 +25,15 @@ export default function Dropdown({ categoryList, dropdownPurpose, idName }) {
   }
 
   return (
-    <div>
-      <label htmlFor={dropdownPurpose}>{dropdownPurpose}</label>
+    <div class="py-5">
+      <label
+        class="font-body text-teal-600 m-0 pr-3 pl-0"
+        htmlFor={dropdownPurpose}
+      >
+        {dropdownPurpose}
+      </label>
       <select
+        class="font-body rounded-full p-1 bg-teal-900 text-slate-50 text-base"
         onChange={(event) => getSelection(event)}
         name={dropdownPurpose}
         id={idName}

@@ -13,7 +13,6 @@ const SearchPage = () => {
     <div>
       <div>
         <Header loggedIn={true} />
-        <OptionsMenu selected="search" />
       </div>
       <h1 className="page-title">Search</h1>
       <div className="subtitle">Books by Title and/or Author</div>

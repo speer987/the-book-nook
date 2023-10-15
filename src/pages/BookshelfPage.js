@@ -5,7 +5,6 @@ const BookshelfPage = () => {
     <div>
       <div>
         <Header />
-        <OptionsMenu selected="bookshelf" />
       </div>
       <div>Bookshelf Page</div>
     </div>
