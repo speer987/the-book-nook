@@ -7,10 +7,10 @@ module.exports = {
       body: ['"Onest"', "sans-serif"],
     },
     extend: {
-      // colors: { 'dark': '#083344', //950
-      //           'med': '#0891b2', //600
-      //           'light': '#67e8f9' }, //300
+      backgroundImage: {
+        "home": "url('/src/images/books.jpg')",
+      },
     },
   },
   plugins: [],
-};
+}

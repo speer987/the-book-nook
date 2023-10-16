@@ -1,7 +1,7 @@
 import GridElement from "./GridElement";
 import ImageGridElement from "./ImageGridElement";
 import GridPrevButton from "./GridPrevButton";
-export default function BookInfo({ book }) {
+export default function BookInfo({ book, close }) {
   return (
     <div class="flex w-6/12">
       <div class="border-solid border-1 border-slate-50 flex rounded-xl p-3 m-5 bg-white shadow-lg">
