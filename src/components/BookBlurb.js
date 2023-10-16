@@ -55,7 +55,7 @@ export default function BookBlurb({ id = null, data }) {
       listPrice = base?.listPrice?.amount?.toString();
       price = listPrice + " " + currency;
     } else {
-      price = "Not saleable within the United States.";
+      price = "N/A";
     }
 
     currentDict = {
@@ -75,5 +75,11 @@ export default function BookBlurb({ id = null, data }) {
     bookArray.push(currentDict);
   });
 
-  return bookArray?.map((book) => <BookInfo book={book} />);
+  return (
+    <div class="flex flex-wrap">
+      {bookArray?.map((book, index) => (
+        <BookInfo key={index} book={book} />
+      ))}
+    </div>
+  );
 }

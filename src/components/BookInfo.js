@@ -3,26 +3,42 @@ import ImageGridElement from "./ImageGridElement";
 import GridPrevButton from "./GridPrevButton";
 export default function BookInfo({ book }) {
   return (
-    <div class="flex w-screen p-5">
-      <div class="border-2 basis-1/6">
-        <div class="border-2">
-          <img src={book?.image} class="object-cover w-80" />
-        </div>
+    <div class="flex w-6/12 p-5">
+      <div class="border-2 basis-2/6">
+        <img src={book?.image} class="w-44 m-5 rounded" />
         <div class="border-2">preview btn</div>
         <div class="border-2">add btn</div>
       </div>
-      <div class="border-2 basis-5/6">
-        <div class="border-2">title</div>
-        <div class="flex">
-          <div class="border-2 basis-1/2">author</div>
-          <div class="border-2 basis-1/2">publsihed</div>
+      <div class="border-2 basis-4/6">
+        <div class="mt-2 mb-0 font-title text-xl p-2 pb-0 rounded text-teal-900">
+          {book?.title}
         </div>
-        <div class="border-2 h-40">desc</div>
-        <div class="flex">
-          <div class="border-2 basis-1/4">mat</div>
-          <div class="border-2 basis-1/4">rat</div>
-          <div class="border-2 basis-1/4">page no</div>
-          <div class="border-2 basis-1/4">price</div>
+        <div class="p-2 pt-0 pb-0 text-teal-800 font-body">
+          By {book?.authors}
+        </div>
+        <div class="p-2 pt-0 text-teal-800 font-body">
+          Published in {book?.published}
+        </div>
+        <div class="border-2 overflow-scroll font-body p-2 h-52">
+          {book?.desc}
+        </div>
+        <div class="flex flex-end">
+          <div class="border-2 basis-1/4 font-body p-2">
+            <p class="text-teal-900">Maturity</p>
+            <p class="text-teal-600">{book?.maturity}</p>
+          </div>
+          <div class="border-2 basis-1/4 font-body p-2">
+            <p class="text-teal-900">Rating</p>
+            <p class="text-teal-600">{book?.rating}</p>
+          </div>
+          <div class="border-2 basis-1/4 font-body p-2">
+            <p class="text-teal-900">Page Count</p>
+            <p class="text-teal-600">{book?.pages}</p>
+          </div>
+          <div class="border-2 basis-1/4 font-body p-2">
+            <p class="text-teal-900">Price</p>
+            <p class="text-teal-600">{book?.price}</p>
+          </div>
         </div>
       </div>
     </div>
