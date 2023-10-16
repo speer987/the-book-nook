@@ -19,7 +19,6 @@ export default function Dropdown({ categoryList, dropdownPurpose, idName }) {
       .then((response) => response?.json())
       .then((response_json) => {
         setCurrentBest(response_json.results.books);
-        console.log(response_json.results);
       })
       .catch((error) => setCurrentBest(error));
   }

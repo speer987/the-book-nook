@@ -73,7 +73,7 @@ const ExplorePage = () => {
   return (
     <div>
       <Header />
-      <div class="bg-gradient-to-b from-teal-100 text-lg p-7">
+      <div class="bg-gradient-to-b from-teal-100 text-lg p-7 pb-3">
         <CurrentPageWithInfo
           page="Explore"
           info={"New York Time's Best Selling Books This Week"}

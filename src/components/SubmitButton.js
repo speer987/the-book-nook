@@ -29,5 +29,12 @@ export default function SubmitButton({ title, author, setData }) {
       .catch((error) => setData(error));
   }
 
-  return <button onClick={submit}>Search</button>;
+  return (
+    <button
+      class="rounded bg-teal-900 font-body text-slate-50 ml-5 p-3"
+      onClick={submit}
+    >
+      Search
+    </button>
+  );
 }
