@@ -24,7 +24,7 @@ export default function Dropdown({ categoryList, dropdownPurpose, idName }) {
   }
 
   return (
-    <div class="py-5">
+    <div class="p-7 pt-3 pb-0">
       <label
         class="font-body text-teal-600 m-0 pr-3 pl-0"
         htmlFor={dropdownPurpose}

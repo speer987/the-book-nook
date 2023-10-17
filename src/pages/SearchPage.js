@@ -19,13 +19,13 @@ const SearchPage = () => {
         />
       </div>
       <TextInput
-        displayName="Title"
+        displayName="Title:"
         type="text"
         value="title"
         setter={setTitle}
       />
       <TextInput
-        displayName="Author"
+        displayName="Author:"
         type="text"
         value={author}
         setter={setAuthor}
