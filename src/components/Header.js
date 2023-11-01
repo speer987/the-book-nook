@@ -1,4 +1,3 @@
-import ExplorePage from "../pages/ExplorePage";
 import { Link } from "react-router-dom";
 
 export default function Header({ setPage }) {
@@ -18,29 +17,19 @@ export default function Header({ setPage }) {
           class="active:ring-teal-300 transition duration-500 ease-in-out rounded-lg hover:bg-teal-800 font-body m-5 p-3"
           to={"../search"}
         >
-          {/* {setPage("Search")} */}
           Search
         </Link>
         <Link
           class="active:ring-teal-300 transition duration-500 ease-in-out rounded-lg hover:bg-teal-800 font-body m-5 p-3"
           to={"../bookshelf"}
         >
-          {/* {setPage("Bookshelf")} */}
           Bookshelf
         </Link>
         <Link
           class="active:ring-teal-300 transition duration-500 ease-in-out rounded-lg hover:bg-teal-800 font-body m-5 p-3"
           to={"../reading-log"}
         >
-          {/* {setPage("Reading Log")} */}
           Reading Log
-        </Link>
-        <Link
-          class="active:ring-teal-300 transition duration-500 ease-in-out rounded-lg hover:bg-teal-800 font-body m-5 p-3"
-          to={"../vocabulary"}
-        >
-          {/* {setPage("Vocabulary")} */}
-          Vocabulary
         </Link>
       </div>
       <div>User Image Goes Here</div>

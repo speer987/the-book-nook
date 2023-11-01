@@ -5,9 +5,10 @@ export default function SubmitVocabButton({ word, setData }) {
 
     console.log(url);
     fetch(url)
-      .then((response) => response.json())
+      .then((response) => response?.json())
       .then((response_json) => {
-        setData(response_json?.items);
+        console.log(response_json);
+        setData(response_json);
       })
       .catch((error) => setData(error));
   }

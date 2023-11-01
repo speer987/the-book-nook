@@ -1,7 +1,4 @@
-import GridElement from "./GridElement";
-import ImageGridElement from "./ImageGridElement";
-import GridPrevButton from "./GridPrevButton";
-export default function BookInfo({ book, close }) {
+export default function BookInfo({ book }) {
   return (
     <div class="flex w-6/12">
       <div class="border-solid border-1 border-slate-50 flex rounded-xl p-3 m-5 bg-white shadow-lg">
@@ -12,9 +9,16 @@ export default function BookInfo({ book, close }) {
               Read Preview
             </button>
           </a>
-          <button class="h-8 font-body rounded w-44 m-5 mt-0 bg-teal-900 text-slate-50">
-            Add to Shelf
-          </button>
+          <select
+            class="h-8 font-body rounded w-44 m-5 mt-0 bg-teal-900 text-slate-50 text-center"
+            name="shelf"
+            id="shelf"
+          >
+            <option value="dummy">Select</option>
+            <option value="Reading">Currently Reading</option>
+            <option value="Want to Read">Want to Read</option>
+            <option value="Completed">Completed</option>
+          </select>
         </div>
         <div class="basis-4/6">
           <div class="mt-2 mb-0 font-title text-xl p-2 pb-0 rounded text-teal-900">
@@ -48,35 +52,5 @@ export default function BookInfo({ book, close }) {
         </div>
       </div>
     </div>
-
-    // <div className="blurb-grid flex-container flex-row">
-    //   <ImageGridElement id="grid-image" src={book?.image} />
-    //   <GridElement id="grid-title" content={book?.title} />
-    //   <GridElement
-    //     id="grid-author"
-    //     content={book?.authors}
-    //     display="Author(s)"
-    //   />
-    //   <GridElement id="grid-desc" content={book?.desc} />
-    //   <GridElement
-    //     id="grid-maturity"
-    //     content={book?.maturity}
-    //     display="Maturity"
-    //   />
-    //   <GridElement
-    //     id="grid-published"
-    //     content={book?.published}
-    //     display="Published"
-    //   />
-    //   <GridElement id="grid-rating" content={book?.rating} display="Rating" />
-    //   <GridElement id="grid-page" content={book?.pages} display="Page Count" />
-    //   <GridPrevButton
-    //     id="grid-preview"
-    //     content={book?.preview}
-    //     display="Read Preview"
-    //   />
-    //   <GridElement id="grid-price" content={book?.price} display={book?.type} />
-    //   <GridElement id="grid-add" content="" />
-    // </div>
   );
 }

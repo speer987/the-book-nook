@@ -3,7 +3,6 @@ import ExplorePage from "./pages/ExplorePage";
 import Home from "./pages/Home";
 import BookshelfPage from "./pages/BookshelfPage";
 import ReadingLogPage from "./pages/ReadingLogPage";
-import VocabularyPage from "./pages/VocabularyPage";
 import SearchPage from "./pages/SearchPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -18,7 +17,6 @@ function App() {
             <Route path="/search" element={<SearchPage />} />
             <Route path="/bookshelf" element={<BookshelfPage />} />
             <Route path="/reading-log" element={<ReadingLogPage />} />
-            <Route path="/vocabulary" element={<VocabularyPage />} />
           </Routes>
         </Router>
       </div>

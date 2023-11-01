@@ -1,11 +1,8 @@
 import Dropdown from "../components/Dropdown";
 import Header from "../components/Header";
 import CurrentPageWithInfo from "../components/CurrentPageWithInfo";
-import { useState, useEffect } from "react";
 
 const ExplorePage = () => {
-  const [currentBest, setCurrentBest] = useState("");
-  let userSelection = "";
   // Categories from the NYT api from API call:
   const categories = [
     "Select a Genre",
