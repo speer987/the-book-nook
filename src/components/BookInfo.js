@@ -1,6 +1,7 @@
 export default function BookInfo({ book }) {
   return (
     <div class="flex w-6/12">
+      {console.log(book)}
       <div class="border-solid border-1 border-slate-50 flex rounded-xl p-3 m-5 bg-white shadow-lg">
         <div class="basis-2/6">
           <img src={book?.image} class="w-44 m-5 mb-1 rounded" />

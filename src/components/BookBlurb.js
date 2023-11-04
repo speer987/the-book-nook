@@ -1,5 +1,5 @@
 import BookInfo from "./BookInfo";
-export default function BookBlurb({ data, close }) {
+export default function BookBlurb({ data }) {
   let currentVolume,
     title,
     image,
