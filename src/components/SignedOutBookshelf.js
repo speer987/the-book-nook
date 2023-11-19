@@ -1,9 +1,13 @@
+import { SignIn } from "../services/AuthServices";
 export default function SignedOutBookshelf() {
   return (
-    <div>
-      <button class="bg-teal-900 text-slate-100 text-lg rounded p-3 m-7 mt-3 hover:bg-teal-700 transition ease-in-out">
-        Sign In for this Functionality!
-      </button>
+    <div className="p-7 pt-0 text-lg font-body">
+      <p className="text-lg text-teal-900">
+        Please sign in for this functionality:
+      </p>
+      <div className="pt-2 flex text-lg text-slate-100 text-center">
+        <SignIn />
+      </div>
     </div>
   );
 }

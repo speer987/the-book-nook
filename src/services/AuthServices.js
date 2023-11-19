@@ -23,12 +23,12 @@ export function SignOut() {
         className="h-12 rounded-full m-1"
         src={auth.currentUser?.photoURL}
       ></img>
-      <button
-        class="pl-1 pr-3 font-body hover:font-bold"
-        onClick={() => signOut(auth)}
-      >
-        Sign Out
-      </button>
+      <div className="pl-1 pr-4 leading-5 flex flex-column">
+        {auth.currentUser.displayName}
+        <button class="font-body hover:font-bold" onClick={() => signOut(auth)}>
+          Sign Out
+        </button>
+      </div>
     </div>
   );
 }

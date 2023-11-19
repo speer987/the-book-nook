@@ -1,10 +1,10 @@
 import Header from "../components/Header";
 import CurrentPageWithInfo from "../components/CurrentPageWithInfo";
-import BookCoverLog from "../components/BookCoverLog";
+import { useAuthentication } from "../services/AuthServices";
 import SignedInBookshelf from "../components/SignedInBookshelf";
 import SignedOutBookshelf from "../components/SignedOutBookshelf";
 const BookshelfPage = () => {
-  const signedIn = true;
+  const user = useAuthentication();
   return (
     <div>
       <Header />
@@ -14,7 +14,7 @@ const BookshelfPage = () => {
           info={"Your Virtual Bookshelf"}
         />
       </div>
-      {signedIn ? <SignedInBookshelf /> : <SignedOutBookshelf />}
+      {user ? <SignedInBookshelf /> : <SignedOutBookshelf />}
     </div>
   );
 };
