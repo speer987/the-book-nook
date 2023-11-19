@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { SignIn, SignOut, useAuthentication } from "../services/AuthServices";
 export default function Header({ setPage }) {
+  const user = useAuthentication();
   return (
     <header class="flex justify-between bg-teal-900 text-slate-50">
       <div class="text-3xl font-title p-6 pt-7 font-semibold">
@@ -32,7 +33,7 @@ export default function Header({ setPage }) {
           Reading Log
         </Link>
       </div>
-      <div>User Image Goes Here</div>
+      <div className="p-4">{!user ? <SignIn /> : <SignOut />}</div>
     </header>
   );
 }
