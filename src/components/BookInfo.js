@@ -1,54 +1,68 @@
-import {
-  to_read_collection,
-  completed_collection,
-  reading_collection,
-} from "../firebaseConfig";
-import { addDoc } from "firebase/firestore";
+import { db } from "../firebaseConfig";
+import { setDoc, doc } from "firebase/firestore";
 import { useAuthentication } from "../services/AuthServices";
 import "firebase/firestore";
-import { useState } from "react";
 export default function BookInfo({ book }) {
   const user = useAuthentication();
-  let value = null;
+  let value,
+    isbn,
+    title,
+    authors,
+    image = null;
   //  https://bobbyhadz.com/blog/react-select-onchange and used a bit of ChatGPT to figure this out.
+
   const handleChange = (event, book) => {
     value = event.target.value;
+    isbn = book?.isbn;
+    title = book?.title;
+    authors = book?.authors;
+    image = book?.image;
+    // const currentBookRef = doc(books, isbn);
+    setDoc(doc(db, "books", isbn), {
+      state: value,
+      title: title,
+      authors: authors,
+      image: image,
+    });
 
-    if (value === "reading") {
-      console.log("currently reading");
-      console.log(book?.title);
-    } else if (value === "to-read") {
-      console.log("to-read");
-      console.log(book?.title);
-    } else if (value === "completed") {
-      console.log("completed");
-      console.log(book?.title);
-    }
+    // if (value === "reading") {
+    //   add_reading(value, title, authors, image);
+    // } else if (value === "to-read") {
+    //   console.log("to-read");
+    //   add_to_read(value, title, authors, image);
+    // } else if (value === "completed") {
+    //   add_completed(value, title, authors, image);
+    // }
   };
 
-  function add_completed(title, author, image) {
-    addDoc(completed_collection, {
-      title: "test_title",
-      author: "test_author",
-      image: "test_image",
-    });
-  }
+  // function delete_to_read_completed(isbn, value) {}
 
-  function add_to_reading(title, author, image) {
-    addDoc(reading_collection, {
-      title: "test_title",
-      author: "test_author",
-      image: "test_image",
-    });
-  }
+  // function add_completed(title, author, image, isbn) {
+  //   // https://stackoverflow.com/a/48544954
+  //   completed_collection.doc(isbn).set({
+  //     title: title,
+  //     author: author,
+  //     image: image,
+  //   });
+  // }
 
-  function add_to_read(title, author, image) {
-    addDoc(to_read_collection, {
-      title: "test_title",
-      author: "test_author",
-      image: "test_image",
-    });
-  }
+  // function add_reading(title, author, image, isbn) {
+  //   // https://stackoverflow.com/a/48544954
+  //   reading_collection.doc(isbn).set({
+  //     title: title,
+  //     author: author,
+  //     image: image,
+  //   });
+  // }
+
+  // function add_to_read(title, author, image, isbn) {
+  //   // https://stackoverflow.com/a/48544954
+  //   to_read_collection.doc(isbn).set({
+  //     title: title,
+  //     author: author,
+  //     image: image,
+  //   });
+  // }
 
   if (!user) {
     return (

@@ -68,6 +68,7 @@ export default function BookImage({ bookInfo }) {
           preview: currentVolume?.previewLink,
           type: type,
           price: price,
+          isbn: isbn,
         };
         setBookData(bookDataDict);
       })

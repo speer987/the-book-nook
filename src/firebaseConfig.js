@@ -17,6 +17,6 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
 export const db = getFirestore();
-export const completed_collection = collection(db, "completed");
-export const reading_collection = collection(db, "currently-reading");
-export const to_read_collection = collection(db, "want-to-read");
+export const books = collection(db, "books");
+// export const reading_collection = collection(db, "currently-reading");
+// export const to_read_collection = collection(db, "want-to-read");
