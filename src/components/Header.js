@@ -4,30 +4,35 @@ export default function Header({ setPage }) {
   const user = useAuthentication();
   return (
     <header class="flex justify-between bg-teal-900 text-slate-50">
-      <div class="text-3xl font-title p-6 pt-7 font-semibold">
-        The Book Nook
-      </div>
+      <Link
+        className="p-0 m-0 hover:text-teal-100 transition ease-in-out delay-90"
+        to={"../"}
+      >
+        <div class="text-3xl font-title p-6 pt-7 font-semibold">
+          The Book Nook
+        </div>
+      </Link>
       <div class="flex justify-stretch text-slate-50 text-lg">
         <Link
-          class="active:ring-teal-300 transition duration-500 ease-in-out rounded-lg hover:bg-teal-800 font-body m-5 p-3"
+          class="focus:bg-teal-200 active:bg-teal-100 focus:text-teal-900 rounded-lg hover:bg-teal-800 transition duration-500 ease-in-out font-body m-5 p-3"
           to={"../explore"}
         >
           Explore
         </Link>
         <Link
-          class="active:ring-teal-300 transition duration-500 ease-in-out rounded-lg hover:bg-teal-800 font-body m-5 p-3"
+          class="focus:bg-teal-200 active:bg-teal-100 focus:text-teal-900 rounded-lg hover:bg-teal-800 transition duration-500 ease-in-out font-body m-5 p-3"
           to={"../search"}
         >
           Search
         </Link>
         <Link
-          class="active:ring-teal-300 transition duration-500 ease-in-out rounded-lg hover:bg-teal-800 font-body m-5 p-3"
+          class="hover:bg-teal-800 transition duration-500 ease-in-out active:bg-teal-100 focus:bg-teal-200  focus:text-teal-900 rounded-lg  font-body m-5 p-3"
           to={"../bookshelf"}
         >
           Bookshelf
         </Link>
         <Link
-          class="active:ring-teal-300 transition duration-500 ease-in-out rounded-lg hover:bg-teal-800 font-body m-5 p-3"
+          class="focus:bg-teal-200 active:bg-teal-100 focus:text-teal-900 rounded-lg hover:bg-teal-800 transition duration-500 ease-in-out font-body m-5 p-3"
           to={"../reading-log"}
         >
           Reading Log

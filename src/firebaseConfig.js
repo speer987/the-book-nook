@@ -2,6 +2,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore, addDoc, collection } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD6FFfnPURy5siVQEDAqKc8n4Ab-8blPvQ",
@@ -14,3 +15,8 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+export const db = getFirestore();
+export const completed_collection = collection(db, "completed");
+export const reading_collection = collection(db, "currently-reading");
+export const to_read_collection = collection(db, "want-to-read");
