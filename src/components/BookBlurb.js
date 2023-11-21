@@ -78,8 +78,6 @@ export default function BookBlurb({ data }) {
     bookArray.push(currentDict);
   });
 
-  function getPages(isbn) {}
-
   return (
     <div class="flex flex-wrap">
       {bookArray?.map((book, index) => (

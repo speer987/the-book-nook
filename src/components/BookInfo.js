@@ -79,7 +79,7 @@ export default function BookInfo({ book }) {
             <div class="overflow-scroll font-body p-2 h-52">{book?.desc}</div>
             <div class="flex flex-end">
               <div class="basis-1/4 font-body p-2">
-                <p class="text-teal-900">Maturity</p>
+                <p class="text-teal-900">Mature?</p>
                 <p class="text-teal-600">{book?.maturity}</p>
               </div>
               <div class="basis-1/4 font-body p-2">

@@ -1,5 +1,38 @@
 import BookCoverLog from "./BookCoverLog";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 export default function SignedInBookshelf() {
+  const dbRef = collection(db, "books");
+  const completedQuery = query(dbRef, where("state", "==", "completed"));
+  const toReadQuery = query(dbRef, where("state", "==", "to-read"));
+  const readingQuery = query(dbRef, where("state", "==", "reading"));
+  console.log(completedQuery);
+
+  // Got help from here: https://www.youtube.com/watch?v=gEaY2GZMino
+  onSnapshot(completedQuery, (snapshot) => {
+    let completedBooks = [];
+    snapshot.docs.forEach((doc) => {
+      completedBooks.push({ ...doc.data(), id: doc.id });
+    });
+    console.log(completedBooks);
+  });
+
+  onSnapshot(toReadQuery, (snapshot) => {
+    let toReadBooks = [];
+    snapshot.docs.forEach((doc) => {
+      toReadBooks.push({ ...doc.data(), id: doc.id });
+    });
+    console.log(toReadBooks);
+  });
+
+  onSnapshot(readingQuery, (snapshot) => {
+    let readingBooks = [];
+    snapshot.docs.forEach((doc) => {
+      readingBooks.push({ ...doc.data(), id: doc.id });
+    });
+    console.log(readingBooks);
+  });
+
   return (
     <div class="border-solid border-2 flex p-7">
       <div class="border-solid border-2 border-red-100 w-1/2">

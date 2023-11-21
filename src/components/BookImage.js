@@ -38,9 +38,9 @@ export default function BookImage({ bookInfo }) {
         }
 
         if (maturity === "NOT_MATURE") {
-          maturity = "Not Mature";
+          maturity = "No";
         } else {
-          maturity = "Mature";
+          maturity = "Yes";
         }
 
         rating = currentVolume?.averageRating;
