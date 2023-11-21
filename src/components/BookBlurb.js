@@ -1,3 +1,4 @@
+import { useState } from "react";
 import BookInfo from "./BookInfo";
 export default function BookBlurb({ data }) {
   let currentVolume,
@@ -15,13 +16,15 @@ export default function BookBlurb({ data }) {
     listPrice,
     base,
     type,
-    type_bool = null;
+    type_bool,
+    isbn = null;
 
   let bookArray = [];
   let currentDict = {};
 
   data?.map((book) => {
     currentVolume = book?.volumeInfo;
+    isbn = currentVolume?.industryIdentifiers[1]?.identifier;
     title = currentVolume?.title;
     image = currentVolume?.imageLinks?.thumbnail;
     authors = currentVolume?.authors;
@@ -29,8 +32,24 @@ export default function BookBlurb({ data }) {
     maturity = currentVolume?.maturityRating;
     published = currentVolume?.publishedDate;
     rating = currentVolume?.averageRating;
-    pages = currentVolume?.pageCount;
     preview = currentVolume?.previewLink;
+
+    if (
+      currentVolume?.pageCount === undefined ||
+      currentVolume?.pageCount === 0
+    ) {
+      let currentBookURL = `https://openlibrary.org/isbn/${isbn}.json`;
+      fetch(currentBookURL)
+        .then((response) => response.json())
+        .then((response_json) => {
+          pages = response_json?.number_of_pages;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      pages = currentVolume?.pageCount;
+    }
 
     base = book?.saleInfo;
     type_bool = base?.isEbook;
@@ -41,9 +60,9 @@ export default function BookBlurb({ data }) {
     }
 
     if (maturity === "NOT_MATURE") {
-      maturity = "Not Mature";
+      maturity = "No";
     } else {
-      maturity = "Mature";
+      maturity = "Yes";
     }
 
     if (rating === undefined) {
@@ -74,6 +93,8 @@ export default function BookBlurb({ data }) {
 
     bookArray.push(currentDict);
   });
+
+  function getPages(isbn) {}
 
   return (
     <div class="flex flex-wrap">

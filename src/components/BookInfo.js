@@ -8,7 +8,8 @@ export default function BookInfo({ book }) {
     isbn,
     title,
     authors,
-    image = null;
+    image,
+    pages = null;
   //  https://bobbyhadz.com/blog/react-select-onchange and used a bit of ChatGPT to figure this out.
 
   const handleChange = (event, book) => {
@@ -17,52 +18,16 @@ export default function BookInfo({ book }) {
     title = book?.title;
     authors = book?.authors;
     image = book?.image;
-    // const currentBookRef = doc(books, isbn);
+    pages = book?.pages;
+
     setDoc(doc(db, "books", isbn), {
       state: value,
       title: title,
       authors: authors,
       image: image,
+      pages: pages,
     });
-
-    // if (value === "reading") {
-    //   add_reading(value, title, authors, image);
-    // } else if (value === "to-read") {
-    //   console.log("to-read");
-    //   add_to_read(value, title, authors, image);
-    // } else if (value === "completed") {
-    //   add_completed(value, title, authors, image);
-    // }
   };
-
-  // function delete_to_read_completed(isbn, value) {}
-
-  // function add_completed(title, author, image, isbn) {
-  //   // https://stackoverflow.com/a/48544954
-  //   completed_collection.doc(isbn).set({
-  //     title: title,
-  //     author: author,
-  //     image: image,
-  //   });
-  // }
-
-  // function add_reading(title, author, image, isbn) {
-  //   // https://stackoverflow.com/a/48544954
-  //   reading_collection.doc(isbn).set({
-  //     title: title,
-  //     author: author,
-  //     image: image,
-  //   });
-  // }
-
-  // function add_to_read(title, author, image, isbn) {
-  //   // https://stackoverflow.com/a/48544954
-  //   to_read_collection.doc(isbn).set({
-  //     title: title,
-  //     author: author,
-  //     image: image,
-  //   });
-  // }
 
   if (!user) {
     return (
@@ -147,20 +112,20 @@ export default function BookInfo({ book }) {
             <div class="overflow-scroll font-body p-2 h-52">{book?.desc}</div>
             <div class="flex flex-end">
               <div class="basis-1/4 font-body p-2">
-                <p class="text-teal-900">Maturity</p>
-                <p class="text-teal-600">{book?.maturity}</p>
+                <p class="text-teal-900 text-sm">Mature?</p>
+                <p class="text-teal-600 text-lg">{book?.maturity}</p>
               </div>
               <div class="basis-1/4 font-body p-2">
-                <p class="text-teal-900">Rating</p>
-                <p class="text-teal-600">{book?.rating}</p>
+                <p class="text-teal-900 text-sm">Rating</p>
+                <p class="text-teal-600 text-lg">{book?.rating}</p>
               </div>
               <div class="basis-1/4 font-body p-2">
-                <p class="text-teal-900">Page Count</p>
-                <p class="text-teal-600">{book?.pages}</p>
+                <p class="text-teal-900 text-sm">Page Count</p>
+                <p class="text-teal-600 text-lg">{book?.pages}</p>
               </div>
               <div class="basis-1/4 font-body p-2">
-                <p class="text-teal-900">Price</p>
-                <p class="text-teal-600">{book?.price}</p>
+                <p class="text-teal-900 text-sm">{book?.type}</p>
+                <p class="text-teal-600 text-lg">{book?.price}</p>
               </div>
             </div>
           </div>
