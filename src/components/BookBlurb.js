@@ -33,23 +33,7 @@ export default function BookBlurb({ data }) {
     published = currentVolume?.publishedDate;
     rating = currentVolume?.averageRating;
     preview = currentVolume?.previewLink;
-
-    if (
-      currentVolume?.pageCount === undefined ||
-      currentVolume?.pageCount === 0
-    ) {
-      let currentBookURL = `https://openlibrary.org/isbn/${isbn}.json`;
-      fetch(currentBookURL)
-        .then((response) => response.json())
-        .then((response_json) => {
-          pages = response_json?.number_of_pages;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } else {
-      pages = currentVolume?.pageCount;
-    }
+    pages = currentVolume?.pageCount;
 
     base = book?.saleInfo;
     type_bool = base?.isEbook;

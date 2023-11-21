@@ -2,23 +2,26 @@ import { db } from "../firebaseConfig";
 import { setDoc, doc } from "firebase/firestore";
 import { useAuthentication } from "../services/AuthServices";
 import "firebase/firestore";
+import { useState } from "react";
+import { useEffect } from "react";
 export default function BookInfo({ book }) {
   const user = useAuthentication();
   let value,
     isbn,
     title,
     authors,
-    image,
-    pages = null;
+    image = null;
+
+  let [pages, setPages] = useState(null);
+
   //  https://bobbyhadz.com/blog/react-select-onchange and used a bit of ChatGPT to figure this out.
 
-  const handleChange = (event, book) => {
+  const handleChange = (event, book, pages) => {
     value = event.target.value;
     isbn = book?.isbn;
     title = book?.title;
     authors = book?.authors;
     image = book?.image;
-    pages = book?.pages;
 
     setDoc(doc(db, "books", isbn), {
       state: value,
@@ -29,10 +32,31 @@ export default function BookInfo({ book }) {
     });
   };
 
+  // Inspired by the code I submitted a couple of semester ago from my web app dev class for a hw assignment.
+  function fetchPageCountData() {
+    if (book?.pages === undefined || book?.pages === 0) {
+      console.log(book?.title);
+      let currentBookURL = `https://openlibrary.org/isbn/${book?.isbn}.json`;
+      fetch(currentBookURL)
+        .then((response) => response.json())
+        .then((response_json) => {
+          setPages(response_json.number_of_pages);
+        })
+        .catch((error) => setPages(error));
+    } else {
+      setPages(book?.pages);
+    }
+
+    if (pages === undefined) {
+      setPages("N/A");
+    }
+  }
+
+  useEffect(fetchPageCountData);
+
   if (!user) {
     return (
       <div class="flex w-6/12">
-        {console.log(book)}
         <div class="border-solid border-1 border-slate-50 flex rounded-xl p-3 m-5 bg-white shadow-lg">
           <div class="basis-2/6">
             <img src={book?.image} class="w-44 m-5 mb-1 rounded" />
@@ -64,7 +88,7 @@ export default function BookInfo({ book }) {
               </div>
               <div class="basis-1/4 font-body p-2">
                 <p class="text-teal-900">Page Count</p>
-                <p class="text-teal-600">{book?.pages}</p>
+                <p class="text-teal-600">{pages}</p>
               </div>
               <div class="basis-1/4 font-body p-2">
                 <p class="text-teal-900">Price</p>
@@ -91,7 +115,7 @@ export default function BookInfo({ book }) {
               class="h-8 font-body rounded w-44 m-5 mt-0 bg-teal-900 text-slate-50 text-center"
               name="shelf"
               id="shelf"
-              onChange={(event) => handleChange(event, book)}
+              onChange={(event) => handleChange(event, book, pages)}
             >
               <option value="dummy">Select</option>
               <option value="reading">Currently Reading</option>
@@ -121,7 +145,7 @@ export default function BookInfo({ book }) {
               </div>
               <div class="basis-1/4 font-body p-2">
                 <p class="text-teal-900 text-sm">Page Count</p>
-                <p class="text-teal-600 text-lg">{book?.pages}</p>
+                <p class="text-teal-600 text-lg">{pages}</p>
               </div>
               <div class="basis-1/4 font-body p-2">
                 <p class="text-teal-900 text-sm">{book?.type}</p>
