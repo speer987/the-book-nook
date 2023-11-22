@@ -8,7 +8,6 @@ export default function BookCoverLog({
 }) {
   const dbRef = collection(db, "books");
   const handleChange = (state) => {
-    // console.log(book?.isbn);
     setDoc(doc(dbRef, book?.id), {
       state: state,
       title: book?.title,

@@ -70,12 +70,11 @@ export default function SignedInBookshelf() {
         <div class="border-solid border-2 border-blue-200 m-5">
           <div class="text-lg font-title text-teal-900 font-bold">Reading</div>
           <div class="flex border-solid border-2 border-blue-200 overflow-x-auto">
-            {/* {console.log("readingBooks:", readingBooks)} */}
             {readingBooks.map((index, book) => (
-              // console.log("readingBooks:", readingBooks[book].id)
               <BookCoverLog
                 book={readingBooks[book]}
                 optLogText={"Log"}
+                state={"completed"}
                 actionText={"Mark as Complete"}
               />
             ))}
@@ -108,6 +107,7 @@ export default function SignedInBookshelf() {
               {completedBooks?.map((index, book) => (
                 <BookCoverLog
                   book={completedBooks[book]}
+                  state={"to-read"}
                   actionText={"Move to To Read"}
                 />
               ))}
