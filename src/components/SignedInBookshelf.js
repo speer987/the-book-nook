@@ -41,9 +41,9 @@ export default function SignedInBookshelf() {
 
   useEffect(fetchBookshelves, []);
 
-  console.log(readingBooks);
-  console.log(completedBooks);
-  console.log(toReadBooks);
+  // console.log(readingBooks);
+  // console.log(completedBooks);
+  // console.log(toReadBooks);
   return (
     <div class="border-solid border-2 flex p-7">
       <div class="border-solid border-2 border-red-100 w-1/2">
@@ -70,8 +70,9 @@ export default function SignedInBookshelf() {
         <div class="border-solid border-2 border-blue-200 m-5">
           <div class="text-lg font-title text-teal-900 font-bold">Reading</div>
           <div class="flex border-solid border-2 border-blue-200 overflow-x-auto">
-            {console.log("readingBooks:", readingBooks)}
+            {/* {console.log("readingBooks:", readingBooks)} */}
             {readingBooks.map((index, book) => (
+              // console.log("readingBooks:", readingBooks[book].id)
               <BookCoverLog
                 book={readingBooks[book]}
                 optLogText={"Log"}
@@ -86,6 +87,7 @@ export default function SignedInBookshelf() {
             {toReadBooks?.map((index, book) => (
               <BookCoverLog
                 book={toReadBooks[book]}
+                state={"reading"}
                 actionText={"Move to Reading"}
               />
             ))}
