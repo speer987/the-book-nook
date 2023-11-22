@@ -7,10 +7,11 @@ import { useEffect } from "react";
 export default function BookInfo({ book }) {
   const user = useAuthentication();
   let value,
-    isbn,
     title,
     authors,
     image = null;
+
+  let isbn = book?.isbn;
 
   let [pages, setPages] = useState(null);
 
@@ -36,25 +37,38 @@ export default function BookInfo({ book }) {
   function fetchPageCountData() {
     if (book?.pages === undefined || book?.pages === 0) {
       console.log(book?.title);
+      // console.log(isbn);
       let currentBookURL = `https://openlibrary.org/isbn/${book?.isbn}.json`;
       fetch(currentBookURL)
         .then((response) => response.json())
         .then((response_json) => {
-          setPages(response_json.number_of_pages);
+          if (
+            response_json.number_of_pages === 0 ||
+            response_json.number_of_pages === undefined
+          ) {
+            setPages("N/A");
+          } else {
+            setPages(response_json.number_of_pages);
+          }
         })
-        .catch((error) => setPages(error));
+        .catch((error) => setPages("N/A"));
     } else {
-      setPages(book?.pages);
+      if (book?.pages === 0) {
+        setPages("N/A");
+      } else {
+        setPages(book?.pages);
+      }
     }
 
-    if (pages === undefined) {
+    if (book?.pages === undefined) {
       setPages("N/A");
     }
   }
 
-  useEffect(fetchPageCountData);
+  useEffect(fetchPageCountData, [book]);
 
   if (!user) {
+    console.log(book);
     return (
       <div class="flex w-6/12">
         <div class="border-solid border-1 border-slate-50 flex rounded-xl p-3 m-5 bg-white shadow-lg">
@@ -102,7 +116,7 @@ export default function BookInfo({ book }) {
   } else {
     return (
       <div class="flex w-6/12">
-        {console.log(book)}
+        {/* {console.log(book?.isbn)} */}
         <div class="border-solid border-1 border-slate-50 flex rounded-xl p-3 m-5 bg-white shadow-lg">
           <div class="basis-2/6">
             <img src={book?.image} class="w-44 m-5 mb-1 rounded" />

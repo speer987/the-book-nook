@@ -24,7 +24,8 @@ export default function BookBlurb({ data }) {
 
   data?.map((book) => {
     currentVolume = book?.volumeInfo;
-    isbn = currentVolume?.industryIdentifiers[1]?.identifier;
+    isbn = currentVolume?.industryIdentifiers?.[1]?.identifier;
+    // isbn = currentVolume?.industryIdentifiers?.[1]?.identifier;
     title = currentVolume?.title;
     image = currentVolume?.imageLinks?.thumbnail;
     authors = currentVolume?.authors;
@@ -73,6 +74,7 @@ export default function BookBlurb({ data }) {
       preview: preview,
       price: price,
       type: type,
+      isbn: isbn,
     };
 
     bookArray.push(currentDict);
