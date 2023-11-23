@@ -41,9 +41,6 @@ export default function SignedInBookshelf() {
 
   useEffect(fetchBookshelves, []);
 
-  // console.log(readingBooks);
-  // console.log(completedBooks);
-  // console.log(toReadBooks);
   return (
     <div class="border-solid border-2 flex p-7">
       <div class="border-solid border-2 border-red-100 w-1/2">
@@ -66,10 +63,12 @@ export default function SignedInBookshelf() {
           </button>
         </div>
       </div>
-      <div class="border-solid border-2 border-green-100 w-1/2">
-        <div class="border-solid border-2 border-blue-200 m-5">
-          <div class="text-lg font-title text-teal-900 font-bold">Reading</div>
-          <div class="flex border-solid border-2 border-blue-200 overflow-x-auto">
+      <div class="w-1/2">
+        <div class="m-5">
+          <div class="text-lg font-title text-teal-900 font-bold">
+            Currently Reading
+          </div>
+          <div class="flex overflow-x-auto">
             {readingBooks.map((index, book) => (
               <BookCoverLog
                 book={readingBooks[book]}
@@ -80,9 +79,11 @@ export default function SignedInBookshelf() {
             ))}
           </div>
         </div>
-        <div class="border-solid border-2 border-blue-200 m-5">
-          <div class="text-lg font-title text-teal-900 font-bold">To Read</div>
-          <div class="flex border-solid border-2 border-blue-200 overflow-x-auto">
+        <div class="m-5">
+          <div class="text-lg font-title text-teal-900 font-bold">
+            Want To Read
+          </div>
+          <div class="flex overflow-x-auto">
             {toReadBooks?.map((index, book) => (
               <BookCoverLog
                 book={toReadBooks[book]}
@@ -90,20 +91,14 @@ export default function SignedInBookshelf() {
                 actionText={"Move to Reading"}
               />
             ))}
-            {/* console.log(toReadBooks[book]) */}
-            {/* <BookCoverLog actionText={"Move to Reading"} />
-            <BookCoverLog actionText={"Move to Reading"} />
-            <BookCoverLog actionText={"Move to Reading"} />
-            <BookCoverLog actionText={"Move to Reading"} />
-            <BookCoverLog actionText={"Move to Reading"} /> */}
           </div>
         </div>
-        <div class="border-solid border-2 border-blue-200 m-5">
+        <div class="m-5">
           <div class="text-lg font-title text-teal-900 font-bold">
             Completed
           </div>
           <div>
-            <div class="flex border-solid border-2 border-blue-200 overflow-x-auto">
+            <div class="flex overflow-x-auto">
               {completedBooks?.map((index, book) => (
                 <BookCoverLog
                   book={completedBooks[book]}
@@ -111,12 +106,6 @@ export default function SignedInBookshelf() {
                   actionText={"Move to To Read"}
                 />
               ))}
-              {/* <BookCoverLog actionText={"Move to To Read"} />
-              <BookCoverLog actionText={"Move to To Read"} />
-              <BookCoverLog actionText={"Move to To Read"} />
-              <BookCoverLog actionText={"Move to To Read"} />
-              <BookCoverLog actionText={"Move to To Read"} />
-              <BookCoverLog actionText={"Move to To Read"} /> */}
             </div>
           </div>
         </div>
