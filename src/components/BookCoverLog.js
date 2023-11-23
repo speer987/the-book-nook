@@ -3,6 +3,7 @@ import { db } from "../firebaseConfig";
 export default function BookCoverLog({
   actionText,
   optLogText = null,
+  setLogBook = null,
   book,
   state,
 }) {
@@ -21,6 +22,7 @@ export default function BookCoverLog({
       bookshelf = "want to read";
     } else if (state === "completed") {
       bookshelf = "have completed";
+      setLogBook(null);
     } else {
       bookshelf = "are currently reading";
     }
@@ -30,6 +32,10 @@ export default function BookCoverLog({
         `You moved "${book?.title}" by ${book?.authors} to the shelf of books you ${bookshelf}.`
       );
     }, 50);
+  };
+
+  const renderGraph = (book) => {
+    setLogBook(book);
   };
 
   if (book?.pages === 0 || book?.pages === "N/A") {
@@ -42,7 +48,10 @@ export default function BookCoverLog({
         <img class="w-40 h-56 rounded-md" src={book?.image}></img>
       </div>
       {optLogText && (
-        <button class="hover:bg-teal-700 rounded m-2 my-1 bg-teal-900 text-slate-100 p-1 font-body">
+        <button
+          onClick={() => renderGraph(book)}
+          class="hover:bg-teal-700 rounded m-2 my-1 bg-teal-900 text-slate-100 p-1 font-body"
+        >
           {optLogText}
         </button>
       )}
