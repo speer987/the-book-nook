@@ -2,6 +2,8 @@ import BookCoverLog from "./BookCoverLog";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import { useEffect, useState } from "react";
+import LineChart from "./LineChart";
+
 export default function SignedInBookshelf() {
   const dbRef = collection(db, "books");
   const completedQuery = query(dbRef, where("state", "==", "completed"));
@@ -12,6 +14,14 @@ export default function SignedInBookshelf() {
   let [completedBooks, setCompletedBooks] = useState([]);
   let [logBook, setLogBook] = useState(null);
   let tempArray = [];
+  let [progress, setProgress] = useState(null);
+
+  // const extractUserInput = () => {
+  //   // https://www.youtube.com/watch?v=PX_2FSs5Glo help to update user input.
+  //   setProgress(document.getElementById("user_input").value);
+  // };
+
+  // useEffect(extractUserInput, [progress]);
 
   // Got help from here: https://www.youtube.com/watch?v=gEaY2GZMino
   function fetchBookshelves() {
@@ -58,16 +68,20 @@ export default function SignedInBookshelf() {
             </div>
           </div>
           <div class="border-solid border-2 border-blue-200 m-5 text-lg font-title text-teal-900">
-            Graph goes here
+            <LineChart pages={logBook?.pages} />
           </div>
           <div class="flex border-solid border-2 border-blue-200 m-5">
             <input
+              id="user_input"
               type="number"
               class="rounded flex border-solid border-2 border-slate-300 w-2/3 font-body h-8"
             ></input>
             <button class="rounded bg-teal-900 m-1.5 border-solid w-1/3 h-8 text-slate-100 text-center">
               Log
             </button>
+          </div>
+          <div class="border-solid border-2 border-blue-200 m-5 text-lg font-title text-teal-900">
+            <LineChart pages={logBook?.pages} />
           </div>
         </div>
         <div class="w-1/2">
