@@ -59,7 +59,7 @@ export default function BookImage({ bookInfo }) {
         bookDataDict = {
           title: currentVolume?.title,
           image: currentVolume?.imageLinks?.thumbnail,
-          authors: currentVolume?.authors,
+          authors: currentVolume?.authors.join(", "),
           desc: currentVolume?.description,
           maturity: maturity,
           published: currentVolume?.publishedDate,

@@ -62,6 +62,9 @@ export default function BookBlurb({ data }) {
       price = "N/A";
     }
 
+    authors = authors.join(", ");
+    console.log(authors);
+
     currentDict = {
       title: title,
       authors: authors,
