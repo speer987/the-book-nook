@@ -8,6 +8,7 @@ export default function TextInput({ type, value, displayName, setter }) {
         class="rounded border-2 border-teal-600 font-body"
         type={type}
         onChange={(e) => setter(e.target.value)}
+        required
       />
       <br />
     </div>

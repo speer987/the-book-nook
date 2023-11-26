@@ -7,9 +7,6 @@ import {
   query,
   where,
   increment,
-  FieldValue,
-  updateDoc,
-  getDoc,
 } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import { useEffect, useState } from "react";

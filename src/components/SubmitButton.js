@@ -17,7 +17,7 @@ export default function SubmitButton({ title, author, setData }) {
       url = url.replace(/\s+/g, "-").toLowerCase();
       url = url.concat(`&key=${apiKey}`);
     } else {
-      console.log("Please enter a title");
+      alert("Please enter a book title.");
     }
 
     console.log(url);
@@ -26,7 +26,7 @@ export default function SubmitButton({ title, author, setData }) {
       .then((response_json) => {
         setData(response_json?.items);
       })
-      .catch((error) => setData(error));
+      .catch((error) => setData(null));
   }
 
   return (
