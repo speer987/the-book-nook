@@ -1,4 +1,11 @@
-import { setDoc, doc, collection, deleteDoc } from "firebase/firestore";
+import {
+  setDoc,
+  updateDoc,
+  doc,
+  collection,
+  deleteDoc,
+  getDoc,
+} from "firebase/firestore";
 import { db } from "../firebaseConfig";
 export default function BookCoverLog({
   actionText,
@@ -17,6 +24,7 @@ export default function BookCoverLog({
     } else if (state === "completed") {
       bookshelf = "have completed";
       deleteDoc(doc(dbProgressRef, book?.id));
+      setLogBook(null);
     } else {
       bookshelf = "are currently reading";
     }
@@ -35,14 +43,7 @@ export default function BookCoverLog({
           ", "
         )} to the shelf of books you ${bookshelf}.`
       );
-      if (state === "completed") {
-        window.location.reload();
-      }
     }, 50);
-  };
-
-  const renderGraph = (book) => {
-    setLogBook(book);
   };
 
   if (book?.pages === 0 || book?.pages === "N/A") {

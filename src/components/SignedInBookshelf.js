@@ -40,6 +40,14 @@ export default function SignedInBookshelf() {
       pages_logged += parseInt(userProgress);
     }
 
+    if (userProgress < 0 && userDate == "") {
+      alert("Please enter a valid date and page amounts to log progress.");
+    } else if (userDate === "") {
+      alert("Please enter a valid date to log pages.");
+    } else if (userProgress < 0) {
+      alert("Please enter valid pages amounts to log pages.");
+    }
+
     console.log(pages_logged);
     // if (pages_logged <= logBook?.pages) {
     if (logBook && userProgress && userDate) {
@@ -49,8 +57,11 @@ export default function SignedInBookshelf() {
         { [userDate]: increment(userProgress) },
         { merge: true }
       );
+
+      setTimeout(() => {
+        alert(`You logged ${userProgress} pages.`);
+      });
     }
-    // }
   }
   useEffect(getUserProgress, []);
 
@@ -82,6 +93,17 @@ export default function SignedInBookshelf() {
   }
 
   useEffect(fetchBookshelves, []);
+
+  function getReading() {
+    const readingQuery = query(dbRef, where("state", "==", "reading"));
+    onSnapshot(readingQuery, (snapshot) => {
+      snapshot.docs.forEach((doc) => {
+        tempArray.push({ ...doc.data(), id: doc.id });
+      });
+      setReadingBooks(tempArray);
+      tempArray = [];
+    });
+  }
 
   if (logBook) {
     return (
@@ -127,6 +149,7 @@ export default function SignedInBookshelf() {
               Currently Reading
             </div>
             <div class="flex overflow-x-auto">
+              {getReading}
               {readingBooks.map((index, book) => (
                 <BookCoverLog
                   key={index}
