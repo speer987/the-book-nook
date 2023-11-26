@@ -31,7 +31,9 @@ export default function BookCoverLog({
 
     setTimeout(() => {
       alert(
-        `You moved "${book?.title}" by ${book?.authors} to the shelf of books you ${bookshelf}.`
+        `You moved "${book?.title}" by ${book?.authors.join(
+          ", "
+        )} to the shelf of books you ${bookshelf}.`
       );
       if (state === "completed") {
         window.location.reload();

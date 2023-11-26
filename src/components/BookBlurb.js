@@ -63,7 +63,6 @@ export default function BookBlurb({ data }) {
     }
 
     authors = authors.join(", ");
-    console.log(authors);
 
     currentDict = {
       title: title,
