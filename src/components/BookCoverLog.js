@@ -1,6 +1,5 @@
 import { setDoc, doc, collection, deleteDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
-import { useState } from "react";
 export default function BookCoverLog({
   actionText,
   optLogText = null,
@@ -34,6 +33,9 @@ export default function BookCoverLog({
       alert(
         `You moved "${book?.title}" by ${book?.authors} to the shelf of books you ${bookshelf}.`
       );
+      if (state === "completed") {
+        window.location.reload();
+      }
     }, 50);
   };
 
