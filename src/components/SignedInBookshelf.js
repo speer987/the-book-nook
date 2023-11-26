@@ -9,6 +9,7 @@ import {
   increment,
   FieldValue,
   updateDoc,
+  getDoc,
 } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import { useEffect, useState } from "react";
@@ -31,13 +32,19 @@ export default function SignedInBookshelf() {
     today.getMonth() + 1
   }-${today.getDate()}`;
 
+  let pages_logged = parseInt(0);
   function getUserProgress() {
     let userProgress = document?.getElementById("user_input")?.value;
-    if (userProgress > logBook?.pages) {
-      userProgress = null;
-    }
     let userDate = document?.getElementById("date_input")?.value;
 
+    if (userProgress > logBook?.pages && userDate !== null) {
+      userProgress = null;
+    } else {
+      pages_logged += parseInt(userProgress);
+    }
+
+    console.log(pages_logged);
+    // if (pages_logged <= logBook?.pages) {
     if (logBook && userProgress && userDate) {
       setDoc(
         doc(dbProgressRef, logBook?.id),
@@ -46,6 +53,7 @@ export default function SignedInBookshelf() {
         { merge: true }
       );
     }
+    // }
   }
   useEffect(getUserProgress, []);
 
@@ -80,8 +88,8 @@ export default function SignedInBookshelf() {
 
   if (logBook) {
     return (
-      <div class="border-solid border-2 flex p-7">
-        <div class="border-solid border-2 border-red-100 w-1/2">
+      <div class=" flex p-7">
+        <div class="w-1/2">
           <div class="m-5 mb-0 text-xl font-title text-teal-900 font-bold">
             Currently Logging Progress For
           </div>
@@ -93,10 +101,10 @@ export default function SignedInBookshelf() {
               ISBN: {logBook?.id}
             </div>
           </div>
-          <div class="border-solid border-2 border-blue-200 m-5 text-lg font-title text-teal-900">
+          <div class="m-5 text-lg font-title text-teal-900 h-96">
             <LineChart db={dbProgressRef} book={logBook} />
           </div>
-          <div className="flex border-solid border-2 border-blue-200 m-5">
+          <div className="flex m-5">
             <input
               id="date_input"
               type="date"
@@ -114,10 +122,6 @@ export default function SignedInBookshelf() {
             >
               Log
             </button>
-          </div>
-          <div class="border-solid border-2 border-blue-200 m-5 text-lg font-title text-teal-900">
-            {/* {console.log(progress)} */}
-            {/* <LineChart progress={progress} pages={logBook?.pages} /> */}
           </div>
         </div>
         <div class="w-1/2">
@@ -173,8 +177,8 @@ export default function SignedInBookshelf() {
     );
   } else {
     return (
-      <div class="border-solid border-2 flex p-7">
-        <div class="border-solid border-2 border-red-100 w-1/2">
+      <div class="flex p-7">
+        <div class=" w-1/2">
           <div class="m-5 mb-0 text-xl font-title text-teal-900 font-bold">
             Please select a book to log.
           </div>

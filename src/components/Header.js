@@ -31,12 +31,12 @@ export default function Header({ setPage }) {
         >
           Bookshelf
         </Link>
-        <Link
+        {/* <Link
           class="focus:bg-teal-200 active:bg-teal-100 focus:text-teal-900 rounded-lg hover:bg-teal-800 transition duration-500 ease-in-out font-body m-5 p-3"
           to={"../reading-log"}
         >
           Reading Log
-        </Link>
+        </Link> */}
       </div>
       <div className="p-4">{!user ? <SignIn /> : <SignOut />}</div>
     </header>

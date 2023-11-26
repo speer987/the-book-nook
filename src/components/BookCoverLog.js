@@ -1,5 +1,6 @@
-import { setDoc, doc, collection } from "firebase/firestore";
+import { setDoc, doc, collection, deleteDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import { useState } from "react";
 export default function BookCoverLog({
   actionText,
   optLogText = null,
@@ -8,7 +9,19 @@ export default function BookCoverLog({
   state,
 }) {
   const dbRef = collection(db, "books");
+  const dbProgressRef = collection(db, "progress");
+  let bookshelf = "";
+
   const handleChange = (state) => {
+    if (state === "to-read") {
+      bookshelf = "want to read";
+    } else if (state === "completed") {
+      bookshelf = "have completed";
+      deleteDoc(doc(dbProgressRef, book?.id));
+    } else {
+      bookshelf = "are currently reading";
+    }
+
     setDoc(doc(dbRef, book?.id), {
       state: state,
       title: book?.title,
@@ -16,16 +29,6 @@ export default function BookCoverLog({
       image: book?.image,
       pages: book?.pages,
     });
-
-    let bookshelf = "";
-    if (state === "to-read") {
-      bookshelf = "want to read";
-    } else if (state === "completed") {
-      bookshelf = "have completed";
-      setLogBook(null);
-    } else {
-      bookshelf = "are currently reading";
-    }
 
     setTimeout(() => {
       alert(
@@ -49,7 +52,7 @@ export default function BookCoverLog({
       </div>
       {optLogText && (
         <button
-          onClick={() => renderGraph(book)}
+          onClick={() => setLogBook(book)}
           class="hover:bg-teal-700 rounded m-2 my-1 bg-teal-900 text-slate-100 p-1 font-body"
         >
           {optLogText}
