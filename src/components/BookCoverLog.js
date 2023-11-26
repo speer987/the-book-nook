@@ -39,9 +39,9 @@ export default function BookCoverLog({
 
     setTimeout(() => {
       alert(
-        `You moved "${book?.title}" by ${book?.authors.join(
-          ", "
-        )} to the shelf of books you ${bookshelf}.`
+        `You moved "${
+          book?.title
+        }" by ${book?.authors?.toString()} to the shelf of books you ${bookshelf}.`
       );
     }, 50);
   };

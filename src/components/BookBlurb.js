@@ -62,7 +62,7 @@ export default function BookBlurb({ data }) {
       price = "N/A";
     }
 
-    authors = authors.join(", ");
+    authors = authors?.toString();
 
     currentDict = {
       title: title,

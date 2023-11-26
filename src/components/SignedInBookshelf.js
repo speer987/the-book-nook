@@ -114,7 +114,7 @@ export default function SignedInBookshelf() {
           </div>
           <div className="border-l-8 border-teal-700 m-10 mt-1">
             <div class="mb-0 text-lg font-title text-teal-700 font-bold ml-2">
-              {logBook?.title} by {logBook?.authors.join(", ")}
+              {logBook?.title} by {logBook?.authors?.toString()}
             </div>
             <div class="text-lg font-title text-teal-700 font-bold ml-2">
               ISBN: {logBook?.id}
