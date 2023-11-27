@@ -32,7 +32,7 @@ export default function Dropdown({ categoryList, dropdownPurpose, idName }) {
         {dropdownPurpose}
       </label>
       <select
-        class="font-body rounded-full p-1 bg-teal-900 text-slate-50 text-base"
+        class="font-body rounded-lg p-1 hover:bg-teal-700 ease-in-out duration-150 bg-teal-900 text-slate-50 text-base focus:bg-teal-200 focus:text-teal-900"
         onChange={(event) => getSelection(event)}
         name={dropdownPurpose}
         id={idName}

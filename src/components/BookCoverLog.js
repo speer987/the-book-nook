@@ -58,14 +58,14 @@ export default function BookCoverLog({
       {optLogText && (
         <button
           onClick={() => setLogBook(book)}
-          class="hover:bg-teal-700 rounded m-2 my-1 bg-teal-900 text-slate-100 p-1 font-body"
+          class="hover:bg-teal-700 transition duration-200 ease-in-out rounded mx-2 mb-1 my-1 bg-teal-900 text-slate-100 p-1 font-body"
         >
           {optLogText}
         </button>
       )}
       <button
         onClick={() => handleChange(state)}
-        class="hover:bg-teal-700 rounded mx-2 mb-2 my-1 bg-teal-900 text-slate-100 p-1 font-body"
+        class="hover:bg-teal-700 transition duration-200 ease-in-out rounded mx-2 mb-1 my-1 bg-teal-900 text-slate-100 p-1 font-body"
       >
         {actionText}
       </button>

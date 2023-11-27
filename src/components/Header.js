@@ -5,7 +5,7 @@ export default function Header({ setPage }) {
   return (
     <header class="flex justify-between bg-teal-900 text-slate-50">
       <Link
-        className="p-0 m-0 hover:text-teal-100 transition ease-in-out delay-90"
+        className="p-0 m-0 hover:text-teal-200 transition ease-in-out duration-200"
         to={"../"}
       >
         <div class="text-3xl font-title p-6 pt-7 font-semibold">
@@ -14,19 +14,19 @@ export default function Header({ setPage }) {
       </Link>
       <div class="flex justify-stretch text-slate-50 text-lg">
         <Link
-          class="focus:bg-teal-200 active:bg-teal-100 focus:text-teal-900 rounded-lg hover:bg-teal-800 transition duration-500 ease-in-out font-body m-5 p-3"
+          class="rounded-lg hover:bg-teal-800 transition duration-500 ease-in-out font-body m-5 p-3"
           to={"../explore"}
         >
           Explore
         </Link>
         <Link
-          class="focus:bg-teal-200 active:bg-teal-100 focus:text-teal-900 rounded-lg hover:bg-teal-800 transition duration-500 ease-in-out font-body m-5 p-3"
+          class="rounded-lg hover:bg-teal-800 transition duration-500 ease-in-out font-body m-5 p-3"
           to={"../search"}
         >
           Search
         </Link>
         <Link
-          class="hover:bg-teal-800 transition duration-500 ease-in-out active:bg-teal-100 focus:bg-teal-200  focus:text-teal-900 rounded-lg  font-body m-5 p-3"
+          class="rounded-lg hover:bg-teal-800 transition duration-500 ease-in-out font-body m-5 p-3"
           to={"../bookshelf"}
         >
           Bookshelf

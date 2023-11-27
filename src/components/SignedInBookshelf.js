@@ -124,12 +124,14 @@ export default function SignedInBookshelf() {
             <LineChart db={dbProgressRef} book={logBook} />
           </div>
           <div className="flex m-5">
+            <label className="font-body text-teal-800">Date:</label>
             <input
               id="date_input"
               type="date"
               max={formattedDate}
               className="rounded flex border-solid border-2 border-slate-300 w-2/3 font-body h-8"
             ></input>
+            <label className="font-body text-teal-800">Pages:</label>
             <input
               id="user_input"
               type="number"
@@ -137,7 +139,7 @@ export default function SignedInBookshelf() {
             ></input>
             <button
               onClick={() => getUserProgress()}
-              class="rounded bg-teal-900 m-1.5 border-solid w-1/3 h-8 text-slate-100 text-center"
+              class="rounded bg-teal-900 hover:bg-teal-700 duration-200 ease-in-out m-1.5 border-solid w-1/3 h-8 text-slate-100 text-center"
             >
               Log
             </button>
@@ -171,7 +173,7 @@ export default function SignedInBookshelf() {
                 <BookCoverLog
                   book={toReadBooks[book]}
                   state={"reading"}
-                  actionText={"Move to Reading"}
+                  actionText={"Mark as Reading"}
                 />
               ))}
             </div>
@@ -186,7 +188,7 @@ export default function SignedInBookshelf() {
                   <BookCoverLog
                     book={completedBooks[book]}
                     state={"to-read"}
-                    actionText={"Move to To Read"}
+                    actionText={"Mark as To Read"}
                   />
                 ))}
               </div>
@@ -229,7 +231,7 @@ export default function SignedInBookshelf() {
                 <BookCoverLog
                   book={toReadBooks[book]}
                   state={"reading"}
-                  actionText={"Move to Reading"}
+                  actionText={"Mark as Reading"}
                 />
               ))}
             </div>
@@ -244,7 +246,7 @@ export default function SignedInBookshelf() {
                   <BookCoverLog
                     book={completedBooks[book]}
                     state={"to-read"}
-                    actionText={"Move to To Read"}
+                    actionText={"Mark as To Read"}
                   />
                 ))}
               </div>

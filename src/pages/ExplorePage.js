@@ -73,7 +73,7 @@ const ExplorePage = () => {
       <div class="bg-gradient-to-b from-teal-100 text-lg p-7 pb-0">
         <CurrentPageWithInfo
           page="Explore"
-          info={"New York Time's Best Selling Books This Week"}
+          info={"The New York Times' Best Selling Books This Week"}
         />
       </div>
       <Dropdown

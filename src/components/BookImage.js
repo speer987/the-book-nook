@@ -95,7 +95,7 @@ export default function BookImage({ bookInfo }) {
           {console.log(bookData)}
           <BookInfo book={bookData} />
           <button
-            className="bg-teal-900 rounded-lg p-2 font-body text-slate-50 w-2/6 hover:bg-teal-700"
+            className="bg-teal-900 rounded p-2 font-body text-slate-50 w-2/6 hover:bg-teal-700 duration-200 ease-in-out"
             onClick={() => closePopup()}
           >
             Close Popup

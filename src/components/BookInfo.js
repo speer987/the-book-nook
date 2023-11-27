@@ -75,7 +75,7 @@ export default function BookInfo({ book }) {
           <div class="basis-2/6">
             <img src={book?.image} class="w-44 m-5 mb-1 rounded" />
             <a href={book?.preview} target="_blank" class="m-0 p-0">
-              <button class="h-8 font-body rounded w-44 mt-0 m-5 mb-1 bg-teal-900 text-slate-50 text-base">
+              <button class="h-8 font-body rounded w-44 mt-0 m-5 mb-1 bg-teal-900 hover:bg-teal-700 text-slate-50 text-base duration-200 ease-in-out">
                 Read Preview
               </button>
             </a>
@@ -121,12 +121,12 @@ export default function BookInfo({ book }) {
           <div class="basis-2/6">
             <img src={book?.image} class="w-44 m-5 mb-1 rounded" />
             <a href={book?.preview} target="_blank" class="m-0 p-0">
-              <button class="h-8 font-body rounded w-44 mt-0 m-5 mb-1 bg-teal-900 text-slate-50 text-base">
+              <button class="h-8 font-body rounded w-44 mt-0 m-5 mb-1 bg-teal-900 text-slate-50 text-base hover:bg-teal-700 duration-200 ease-in-out">
                 Read Preview
               </button>
             </a>
             <select
-              class="h-8 font-body rounded w-44 m-5 mt-0 bg-teal-900 text-slate-50 text-center"
+              class="h-8 font-body rounded w-44 m-5 mt-0 bg-teal-900 text-slate-50 text-center hover:bg-teal-700 duration-200 ease-in-out focus:bg-teal-200 focus:text-teal-900"
               name="shelf"
               id="shelf"
               onChange={(event) => handleChange(event, book, pages)}
