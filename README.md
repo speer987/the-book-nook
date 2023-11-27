@@ -1,5 +1,7 @@
 # Welcome to The Book Nook!
 
+Here is a link to the app: https://the-book-nook-5c098.web.app
+
 This is a fully functional app I made for people who like to read. There are several features that are available to users, with the sole focus of the app being a platform where people can save their favorite books to a bookshelf after searching for and exploring books. 
 
 These are the technologies that I used:
@@ -17,4 +19,3 @@ The pages in the app are:
 - Explore
 - Search
 - Bookshelf (works when a user is logged in)
-
