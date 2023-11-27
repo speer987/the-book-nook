@@ -8,7 +8,6 @@ export default function Dropdown({ categoryList, dropdownPurpose, idName }) {
 
   function getSelection(event) {
     let selectedElement = document.getElementById(idName)?.value;
-    console.log("se: ", selectedElement);
 
     let base_url = `https://api.nytimes.com/svc/books/v3/lists/current/${selectedElement}.json?api-key=`;
 

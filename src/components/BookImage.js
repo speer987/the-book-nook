@@ -22,12 +22,8 @@ export default function BookImage({ bookInfo }) {
     fetch(url)
       .then((response) => response?.json())
       .then((response_json) => {
-        console.log(url);
         data = response_json?.items;
-        console.log(data);
         currentVolume = data[0]?.volumeInfo;
-
-        console.log(currentVolume);
 
         base = data?.saleInfo;
         type_bool = base?.isEbook;
@@ -92,7 +88,6 @@ export default function BookImage({ bookInfo }) {
           className="z-10 fixed top-0 left-0 bg-teal-500 bg-opacity-75 h-screen w-screen flex flex-col items-center justify-center overscroll-contain"
           // onClick={() => closePopup()}
         >
-          {console.log(bookData)}
           <BookInfo book={bookData} />
           <button
             className="bg-teal-900 rounded p-2 font-body text-slate-50 w-2/6 hover:bg-teal-700 duration-200 ease-in-out"

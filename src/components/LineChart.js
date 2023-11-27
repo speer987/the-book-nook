@@ -22,7 +22,6 @@ export default function LineChart({ book, db }) {
     });
     return () => unsubscribe();
   }, [db, book?.id]);
-  console.log(userData);
 
   let total_pages = book?.pages;
   const keys = userData ? Object.keys(userData) : [];

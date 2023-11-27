@@ -36,8 +36,6 @@ export default function BookInfo({ book }) {
   // Inspired by the code I submitted a couple of semester ago from my web app dev class for a hw assignment.
   function fetchPageCountData() {
     if (book?.pages === undefined || book?.pages === 0) {
-      console.log(book?.title);
-      // console.log(isbn);
       let currentBookURL = `https://openlibrary.org/isbn/${book?.isbn}.json`;
       fetch(currentBookURL)
         .then((response) => response.json())
@@ -68,7 +66,6 @@ export default function BookInfo({ book }) {
   useEffect(fetchPageCountData, [book]);
 
   if (!user) {
-    console.log(book);
     return (
       <div class="flex w-6/12">
         <div class="border-solid border-1 border-slate-50 flex rounded-xl p-3 m-5 bg-white shadow-lg">
@@ -116,7 +113,6 @@ export default function BookInfo({ book }) {
   } else {
     return (
       <div class="flex w-6/12">
-        {/* {console.log(book?.isbn)} */}
         <div class="border-solid border-1 border-slate-50 flex rounded-xl p-3 m-5 bg-white shadow-lg">
           <div class="basis-2/6">
             <img src={book?.image} class="w-44 m-5 mb-1 rounded" />

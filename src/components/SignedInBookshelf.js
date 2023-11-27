@@ -48,8 +48,6 @@ export default function SignedInBookshelf() {
       alert("Please enter valid pages amounts to log pages.");
     }
 
-    console.log(pages_logged);
-    // if (pages_logged <= logBook?.pages) {
     if (logBook && userProgress && userDate) {
       setDoc(
         doc(dbProgressRef, logBook?.id),

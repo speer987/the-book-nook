@@ -20,7 +20,6 @@ export default function SubmitButton({ title, author, setData }) {
       alert("Please enter a book title.");
     }
 
-    console.log(url);
     fetch(url)
       .then((response) => response.json())
       .then((response_json) => {

@@ -3,11 +3,9 @@ export default function SubmitVocabButton({ word, setData }) {
     e.preventDefault();
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
 
-    console.log(url);
     fetch(url)
       .then((response) => response?.json())
       .then((response_json) => {
-        console.log(response_json);
         setData(response_json);
       })
       .catch((error) => setData(error));
