@@ -16,19 +16,19 @@ const Home = () => {
       </div>
       <div className="w-1/3 h-2/5 bg-white border-2 border-teal-900 rounded-b-xl flex flex-col items-center justify-center">
         <Link
-          class="bg-teal-200 rounded-lg hover:bg-teal-800 hover:text-slate-50 transition duration-500 ease-in-out font-body p-4"
+          class="bg-teal-200 text-lg rounded-lg hover:bg-teal-800 hover:text-slate-50 transition duration-500 ease-in-out font-body p-4 m-1.5"
           to={"../explore"}
         >
           Explore Trending Books
         </Link>
         <Link
-          class="bg-teal-200 rounded-lg hover:bg-teal-800 hover:text-slate-50 transition duration-500 ease-in-out font-body p-4"
+          class="bg-teal-200 text-lg rounded-lg hover:bg-teal-800 hover:text-slate-50 transition duration-500 ease-in-out font-body p-4 m-1.5"
           to={"../search"}
         >
           Search for A Book
         </Link>
         <Link
-          class="bg-teal-200 rounded-lg hover:bg-teal-800 hover:text-slate-50 transition duration-500 ease-in-out font-body p-4"
+          class="bg-teal-200 text-lg rounded-lg hover:bg-teal-800 hover:text-slate-50 transition duration-500 ease-in-out font-body p-4 m-1.5"
           to={"../bookshelf"}
         >
           Organize Your Virtual Bookshelf

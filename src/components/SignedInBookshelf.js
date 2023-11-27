@@ -124,18 +124,22 @@ export default function SignedInBookshelf() {
             <LineChart db={dbProgressRef} book={logBook} />
           </div>
           <div className="flex m-5">
-            <label className="font-body text-teal-800">Date:</label>
+            <label className="font-body text-teal-800 text-lg m-1.5 mt-2">
+              Date:
+            </label>
             <input
               id="date_input"
               type="date"
               max={formattedDate}
-              className="rounded flex border-solid border-2 border-slate-300 w-2/3 font-body h-8"
+              className="rounded flex border-solid border-2 text-lg border-slate-300 w-2/3 font-body h-8 m-1.5 px-1"
             ></input>
-            <label className="font-body text-teal-800">Pages:</label>
+            <label className="font-body text-teal-800 text-lg m-1.5 mt-2">
+              Pages:
+            </label>
             <input
               id="user_input"
               type="number"
-              className="rounded flex border-solid border-2 border-slate-300 w-2/3 font-body h-8"
+              className="rounded flex border-solid text-lg border-2 border-slate-300 w-2/3 font-body h-8 m-1.5 px-1"
             ></input>
             <button
               onClick={() => getUserProgress()}

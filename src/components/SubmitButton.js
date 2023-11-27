@@ -31,7 +31,7 @@ export default function SubmitButton({ title, author, setData }) {
 
   return (
     <button
-      class="rounded bg-teal-900 font-body hover:bg-teal-700 duration-200 ease-in-out text-slate-50 ml-5 p-3 text-center"
+      class="rounded bg-teal-900 font-body hover:bg-teal-700 duration-200 ease-in-out text-slate-50 ml-7 p-1.5 text-center py-2 my-2"
       onClick={submit}
     >
       Search

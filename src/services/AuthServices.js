@@ -23,7 +23,7 @@ export function SignOut() {
         className="h-12 rounded-full m-1"
         src={auth.currentUser?.photoURL}
       ></img>
-      <div className="mx-4 px-1 pr-4 leading-5 flex flex-column">
+      <div className="mx-4 px-1 pr-4 leading-5 flex flex-col">
         {auth.currentUser.displayName}
         <button class="font-body hover:font-bold" onClick={() => signOut(auth)}>
           Sign Out
